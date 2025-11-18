@@ -1421,6 +1421,18 @@
             });
         });
 
+        // Enhanced toggle voice feedback - speaks feature name and status
+        document.querySelectorAll('.toggle input').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const featureName = this.closest('.feature-card').querySelector('.feature-title').textContent;
+                const status = this.checked ? 'on' : 'off';
+                
+                if (voiceEnabled) {
+                    speakText(`${featureName} ${status}`);
+                }
+            });
+        });
+
         // Login System
         const loginContainer = document.getElementById('loginContainer');
         const dashboard = document.getElementById('dashboard');
@@ -1496,18 +1508,6 @@
         const triggerToggle = document.getElementById('triggerToggle');
         const recoilToggle = document.getElementById('recoilToggle');
         const speedToggle = document.getElementById('speedToggle');
-
-        // Add voice to toggles
-        document.querySelectorAll('.toggle input').forEach(toggle => {
-            toggle.addEventListener('change', function() {
-                const featureName = this.closest('.feature-card').querySelector('.feature-title').textContent;
-                const status = this.checked ? 'activated' : 'deactivated';
-                
-                if (voiceEnabled) {
-                    speakText(`${featureName} ${status}`);
-                }
-            });
-        });
 
         // Validate UID input
         function validateUID() {
