@@ -251,6 +251,44 @@
             75% { transform: translateX(5px); }
         }
 
+        /* Voice Controls */
+        .voice-controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .voice-btn {
+            background: rgba(255, 71, 87, 0.2);
+            border: 1px solid rgba(255, 71, 87, 0.5);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .voice-btn:hover {
+            background: rgba(255, 71, 87, 0.4);
+            transform: scale(1.05);
+        }
+
+        .voice-btn.active {
+            background: rgba(46, 213, 115, 0.4);
+            border-color: #2ed573;
+            animation: voiceActive 1s ease-in-out infinite;
+        }
+
+        @keyframes voiceActive {
+            0%, 100% { box-shadow: 0 0 10px #2ed57344; }
+            50% { box-shadow: 0 0 20px #2ed573; }
+        }
+
         /* Main Dashboard - Hidden Initially */
         .dashboard {
             display: none;
@@ -530,6 +568,7 @@
             position: relative;
             overflow: hidden;
             animation: featureCard 8s linear infinite;
+            cursor: pointer;
         }
 
         @keyframes featureCard {
@@ -1027,36 +1066,6 @@
             100% { border-top-color: #ff4757; }
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            animation: footerLink 4s ease-in-out infinite;
-        }
-
-        @keyframes footerLink {
-            0%, 100% { text-shadow: 0 0 5px rgba(255,255,255,0.1); }
-            50% { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            animation: footerLinkHover 1s ease-in-out infinite;
-        }
-
-        @keyframes footerLinkHover {
-            0%, 100% { text-shadow: 0 0 10px #ff4757; }
-            50% { text-shadow: 0 0 20px #ff4757, 0 0 30px #ff475744; }
-        }
-
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -1073,10 +1082,21 @@
             .login-container {
                 padding: 30px 20px;
             }
+            
+            .voice-controls {
+                top: 10px;
+                left: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Voice Controls -->
+    <div class="voice-controls">
+        <button class="voice-btn" id="voiceToggle">🔊 Voice: ON</button>
+        <button class="voice-btn" id="testVoice">🎤 Test Voice</button>
+    </div>
+
     <!-- Login Section -->
     <div class="login-container" id="loginContainer">
         <div class="login-header">
@@ -1147,7 +1167,7 @@
                 <h2 class="section-title">PREMIUM GAMING FEATURES</h2>
                 
                 <div class="features-grid">
-                    <div class="feature-card">
+                    <div class="feature-card" data-voice="Smart Aimbot">
                         <div class="feature-header">
                             <div class="feature-icon">🎯</div>
                             <div class="feature-title">Smart Aimbot</div>
@@ -1164,7 +1184,7 @@
                         </div>
                     </div>
 
-                    <div class="feature-card">
+                    <div class="feature-card" data-voice="Sniper Aimbot">
                         <div class="feature-header">
                             <div class="feature-icon">🎯</div>
                             <div class="feature-title">Sniper Aimbot</div>
@@ -1181,7 +1201,7 @@
                         </div>
                     </div>
 
-                    <div class="feature-card">
+                    <div class="feature-card" data-voice="Wallhack ESP">
                         <div class="feature-header">
                             <div class="feature-icon">👁️</div>
                             <div class="feature-title">Wallhack ESP</div>
@@ -1198,7 +1218,7 @@
                         </div>
                     </div>
 
-                    <div class="feature-card">
+                    <div class="feature-card" data-voice="Triggerbot">
                         <div class="feature-header">
                             <div class="feature-icon">🖱️</div>
                             <div class="feature-title">Triggerbot</div>
@@ -1215,7 +1235,7 @@
                         </div>
                     </div>
 
-                    <div class="feature-card">
+                    <div class="feature-card" data-voice="No Recoil">
                         <div class="feature-header">
                             <div class="feature-icon">↔️</div>
                             <div class="feature-title">No Recoil</div>
@@ -1232,7 +1252,7 @@
                         </div>
                     </div>
 
-                    <div class="feature-card">
+                    <div class="feature-card" data-voice="Speed Hack">
                         <div class="feature-header">
                             <div class="feature-icon">📊</div>
                             <div class="feature-title">Speed Hack</div>
@@ -1251,10 +1271,10 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button class="btn" id="applySettings">
+                    <button class="btn" id="applySettings" data-voice="Apply All Settings">
                         ⚙️ APPLY ALL SETTINGS
                     </button>
-                    <button class="btn" id="downloadBtn">
+                    <button class="btn" id="downloadBtn" data-voice="Download Panel Pro">
                         🚀 DOWNLOAD PANEL PRO
                     </button>
                 </div>
@@ -1303,7 +1323,7 @@
                         </select>
                     </div>
                     
-                    <button class="btn btn-activate" id="activateBtn">
+                    <button class="btn btn-activate" id="activateBtn" data-voice="Activate Toolkit">
                         ▶️ ACTIVATE TOOLKIT
                     </button>
                 </div>
@@ -1343,6 +1363,64 @@
     </div>
 
     <script>
+        // Voice Synthesis System
+        let voiceEnabled = true;
+        const voiceToggle = document.getElementById('voiceToggle');
+        const testVoiceBtn = document.getElementById('testVoice');
+
+        // Initialize speech synthesis
+        const speech = new SpeechSynthesisUtterance();
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 1;
+        speech.lang = 'en-US';
+
+        function speakText(text) {
+            if (!voiceEnabled) return;
+            
+            // Stop any current speech
+            window.speechSynthesis.cancel();
+            
+            speech.text = text;
+            window.speechSynthesis.speak(speech);
+        }
+
+        // Voice toggle functionality
+        voiceToggle.addEventListener('click', function() {
+            voiceEnabled = !voiceEnabled;
+            this.textContent = voiceEnabled ? '🔊 Voice: ON' : '🔇 Voice: OFF';
+            this.classList.toggle('active', voiceEnabled);
+            
+            if (voiceEnabled) {
+                speakText('Voice feedback enabled');
+            }
+        });
+
+        // Test voice button
+        testVoiceBtn.addEventListener('click', function() {
+            speakText('Voice system is working properly. Welcome to FF Max Toolkit Pro');
+        });
+
+        // Add voice feedback to feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const featureName = this.getAttribute('data-voice');
+                if (featureName) {
+                    speakText(featureName);
+                }
+            });
+        });
+
+        // Add voice feedback to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                const buttonText = this.getAttribute('data-voice') || this.textContent.replace(/[^\w\s]/gi, '');
+                if (buttonText && !this.disabled) {
+                    speakText(buttonText);
+                }
+            });
+        });
+
         // Login System
         const loginContainer = document.getElementById('loginContainer');
         const dashboard = document.getElementById('dashboard');
@@ -1375,9 +1453,11 @@
                 dashboard.style.display = 'block';
                 
                 showNotification(`Welcome back, ${username}!`);
+                speakText(`Welcome back ${username}! Dashboard unlocked`);
             } else {
                 // Failed login
                 errorMessage.style.display = 'block';
+                speakText('Invalid credentials. Please try again.');
                 setTimeout(() => {
                     errorMessage.style.display = 'none';
                 }, 3000);
@@ -1390,6 +1470,7 @@
             loginContainer.style.display = 'block';
             loginForm.reset();
             showNotification('You have been logged out successfully.');
+            speakText('You have been logged out');
         });
 
         // Dashboard functionality
@@ -1415,6 +1496,18 @@
         const triggerToggle = document.getElementById('triggerToggle');
         const recoilToggle = document.getElementById('recoilToggle');
         const speedToggle = document.getElementById('speedToggle');
+
+        // Add voice to toggles
+        document.querySelectorAll('.toggle input').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const featureName = this.closest('.feature-card').querySelector('.feature-title').textContent;
+                const status = this.checked ? 'activated' : 'deactivated';
+                
+                if (voiceEnabled) {
+                    speakText(`${featureName} ${status}`);
+                }
+            });
+        });
 
         // Validate UID input
         function validateUID() {
@@ -1450,6 +1543,7 @@
         activateBtn.addEventListener('click', function() {
             if (!validateUID()) {
                 showNotification('Please enter a valid 10-digit Free Fire UID', 'error');
+                speakText('Please enter a valid 10 digit UID');
                 return;
             }
             
@@ -1464,6 +1558,7 @@
                 updateActiveFeatures();
                 
                 showNotification(`✅ Toolkit activated for UID: ${playerUID.value}`);
+                speakText(`Toolkit activated for UID ${playerUID.value}`);
                 
                 setTimeout(() => {
                     btn.innerHTML = '▶️ ACTIVATE TOOLKIT';
@@ -1483,6 +1578,7 @@
                 updateActiveFeatures();
                 lastUpdate.textContent = new Date().toLocaleTimeString();
                 showNotification('✅ All settings applied successfully!');
+                speakText('All settings applied successfully');
                 
                 setTimeout(() => {
                     btn.innerHTML = '⚙️ APPLY ALL SETTINGS';
@@ -1500,6 +1596,7 @@
             
             setTimeout(() => {
                 showNotification('🚀 Premium version downloaded successfully!');
+                speakText('Premium version downloaded successfully');
                 
                 setTimeout(() => {
                     btn.innerHTML = '🚀 DOWNLOAD PANEL PRO';
@@ -1554,6 +1651,13 @@
         setTimeout(() => {
             playerUID.value = '2849375102';
             validateUID();
+        }, 1000);
+
+        // Welcome message on load
+        setTimeout(() => {
+            if (voiceEnabled) {
+                speakText('Welcome to FF Max Toolkit Pro. Please login to continue');
+            }
         }, 1000);
     </script>
 </body>
