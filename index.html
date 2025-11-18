@@ -20,24 +20,193 @@
             --light: #f1f2f6;
             --success: #2ed573;
             --warning: #ffa502;
-            --premium: linear-gradient(135deg, #ff9f43, #feca57, #ff9ff3);
         }
 
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
             color: var(--light);
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .container {
+        /* RGB Login Container */
+        .login-container {
+            background: rgba(30, 39, 46, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid transparent;
+            position: relative;
+            backdrop-filter: blur(10px);
+            animation: rgbBorder 3s linear infinite;
+        }
+
+        @keyframes rgbBorder {
+            0% { border-color: #ff4757; box-shadow: 0 0 20px #ff4757; }
+            25% { border-color: #3742fa; box-shadow: 0 0 20px #3742fa; }
+            50% { border-color: #2ed573; box-shadow: 0 0 20px #2ed573; }
+            75% { border-color: #ffa502; box-shadow: 0 0 20px #ffa502; }
+            100% { border-color: #ff4757; box-shadow: 0 0 20px #ff4757; }
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff4757, #3742fa, #2ed573, #ffa502, #ff4757);
+            background-size: 400%;
+            border-radius: 22px;
+            z-index: -1;
+            animation: rgbGlow 6s linear infinite;
+            filter: blur(5px);
+        }
+
+        @keyframes rgbGlow {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ff4757, #3742fa, #2ed573);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            animation: rgbText 4s ease-in-out infinite;
+        }
+
+        @keyframes rgbText {
+            0% { background: linear-gradient(90deg, #ff4757, #3742fa, #2ed573); -webkit-background-clip: text; }
+            50% { background: linear-gradient(90deg, #2ed573, #ff4757, #3742fa); -webkit-background-clip: text; }
+            100% { background: linear-gradient(90deg, #3742fa, #2ed573, #ff4757); -webkit-background-clip: text; }
+        }
+
+        .login-subtitle {
+            color: #aaa;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 14px 18px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ff4757;
+            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .login-btn {
+            background: linear-gradient(90deg, #ff4757, #3742fa);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+        }
+
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .login-btn:hover::before {
+            left: 100%;
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .error-message {
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            color: #ff4757;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            display: none;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Main Dashboard - Hidden Initially */
+        .dashboard {
+            display: none;
+            width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
         }
 
         .premium-banner {
-            background: var(--premium);
+            background: linear-gradient(90deg, #ff9f43, #feca57, #ff9ff3);
             color: #000;
             text-align: center;
             padding: 15px;
@@ -47,15 +216,6 @@
             margin-bottom: 25px;
             box-shadow: 0 4px 20px rgba(255, 159, 67, 0.4);
             animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 4px 20px rgba(255, 159, 67, 0.4);
-            }
-            to {
-                box-shadow: 0 4px 30px rgba(255, 159, 67, 0.7);
-            }
         }
 
         header {
@@ -77,44 +237,52 @@
 
         .logo-icon {
             font-size: 32px;
-            background: var(--premium);
+            background: linear-gradient(90deg, #ff4757, #3742fa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
 
         .logo-text {
             font-size: 28px;
             font-weight: 800;
-            background: var(--premium);
+            background: linear-gradient(90deg, #ff4757, #3742fa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .user-info {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        nav a:hover {
-            color: var(--primary);
-            background: rgba(255, 71, 87, 0.1);
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff4757, #3742fa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            background: rgba(255, 71, 87, 0.2);
+            color: #ff4757;
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255, 71, 87, 0.3);
             transform: translateY(-2px);
         }
 
@@ -135,12 +303,6 @@
             align-items: center;
             gap: 10px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .status-item:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.15);
         }
 
         .status-online {
@@ -161,18 +323,16 @@
             padding: 35px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
         }
 
         .section-title {
             font-size: 2rem;
             font-weight: 800;
             margin-bottom: 30px;
-            background: var(--premium);
+            background: linear-gradient(90deg, #ff4757, #3742fa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-align: center;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .features-grid {
@@ -199,13 +359,12 @@
             left: 0;
             width: 6px;
             height: 100%;
-            background: var(--premium);
+            background: linear-gradient(135deg, #ff4757, #3742fa);
         }
 
         .feature-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            border-color: rgba(255, 159, 67, 0.3);
         }
 
         .feature-header {
@@ -224,13 +383,11 @@
             justify-content: center;
             margin-right: 18px;
             font-size: 24px;
-            border: 1px solid rgba(255, 71, 87, 0.3);
         }
 
         .feature-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--light);
         }
 
         .feature-desc {
@@ -252,7 +409,6 @@
             border-radius: 6px;
             font-size: 0.85rem;
             font-family: 'Courier New', monospace;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .toggle {
@@ -278,7 +434,6 @@
             background: linear-gradient(135deg, #666, #888);
             transition: .4s;
             border-radius: 34px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .slider:before {
@@ -291,11 +446,10 @@
             background: white;
             transition: .4s;
             border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         input:checked + .slider {
-            background: var(--premium);
+            background: linear-gradient(135deg, #ff4757, #3742fa);
         }
 
         input:checked + .slider:before {
@@ -308,7 +462,6 @@
             padding: 35px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
         }
 
         .uid-form {
@@ -317,42 +470,9 @@
             gap: 25px;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .form-label {
-            font-weight: 700;
-            color: #ddd;
-            font-size: 1.1rem;
-        }
-
-        .form-input {
-            background: rgba(0, 0, 0, 0.4);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 14px 18px;
-            color: white;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        select.form-input {
-            cursor: pointer;
-        }
-
         .btn {
-            background: var(--premium);
-            color: #000;
+            background: linear-gradient(90deg, #ff4757, #3742fa);
+            color: white;
             border: none;
             padding: 16px 25px;
             border-radius: 12px;
@@ -365,26 +485,15 @@
             justify-content: center;
             gap: 10px;
             margin-top: 15px;
-            box-shadow: 0 5px 15px rgba(255, 159, 67, 0.3);
         }
 
         .btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(255, 159, 67, 0.5);
-        }
-
-        .btn:active {
-            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.4);
         }
 
         .btn-activate {
             background: linear-gradient(135deg, #2ed573, #1e90ff);
-            color: white;
-            box-shadow: 0 5px 15px rgba(46, 213, 115, 0.3);
-        }
-
-        .btn-activate:hover {
-            box-shadow: 0 8px 25px rgba(46, 213, 115, 0.5);
         }
 
         .player-info {
@@ -431,12 +540,6 @@
             display: flex;
             gap: 18px;
             margin-top: 25px;
-            flex-wrap: wrap;
-        }
-
-        .action-buttons .btn {
-            flex: 1;
-            min-width: 200px;
         }
 
         .notification {
@@ -454,8 +557,6 @@
             transition: all 0.4s ease;
             transform: translateX(400px);
             max-width: 400px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .notification.show {
@@ -482,7 +583,7 @@
             position: absolute;
             height: 100%;
             width: 40%;
-            background: var(--premium);
+            background: linear-gradient(90deg, #ff4757, #3742fa);
             animation: loading 1.8s ease-in-out infinite;
             border-radius: 3px;
         }
@@ -496,7 +597,6 @@
             font-size: 0.85rem;
             color: #aaa;
             margin-top: 8px;
-            font-weight: 500;
         }
 
         .uid-valid {
@@ -521,7 +621,6 @@
             color: #feca57;
             text-align: center;
             font-size: 1.3rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         .premium-list {
@@ -549,108 +648,60 @@
             font-size: 0.95rem;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                justify-content: center;
-            }
-            
-            .status-bar {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
             }
             
             .action-buttons {
                 flex-direction: column;
             }
             
-            .action-buttons .btn {
-                min-width: 100%;
-            }
-            
             .premium-list {
                 grid-template-columns: 1fr;
             }
             
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-section,
-            .uid-section {
-                padding: 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-            
-            .premium-banner {
-                font-size: 14px;
-                padding: 12px;
-            }
-            
-            .logo-text {
-                font-size: 24px;
-            }
-            
-            .section-title {
-                font-size: 1.7rem;
-            }
-            
-            .feature-card {
-                padding: 20px;
-            }
-            
-            nav ul {
-                gap: 10px;
-            }
-            
-            nav a {
-                padding: 6px 12px;
-                font-size: 0.9rem;
+            .login-container {
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Login Section -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-header">
+            <div class="login-logo">FFMAX TOOLKIT PRO</div>
+            <div class="login-subtitle">Premium Gaming Assistant - Secure Login Required</div>
+        </div>
+        
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label class="form-label" for="username">USERNAME</label>
+                <input type="text" id="username" class="form-input" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="password">PASSWORD</label>
+                <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+            </div>
+            
+            <div class="error-message" id="errorMessage">
+                ❌ Invalid username or password. Please try again.
+            </div>
+            
+            <button type="submit" class="login-btn">
+                🔐 LOGIN TO DASHBOARD
+            </button>
+        </form>
+        
+        <div class="login-footer">
+            <p>Default Credentials: admin / password123</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard (Hidden Initially) -->
+    <div class="dashboard" id="dashboard">
         <div class="premium-banner">
             🚀 PREMIUM FEATURES ACTIVATED | 🛡️ UNDETECTED TECHNOLOGY | ⚡ MAXIMUM PERFORMANCE
         </div>
@@ -660,15 +711,14 @@
                 <div class="logo-icon">⚡</div>
                 <div class="logo-text">FFMAX TOOLKIT PRO</div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#">🏠 Home</a></li>
-                    <li><a href="#">📥 Download</a></li>
-                    <li><a href="#">⚡ Features</a></li>
-                    <li><a href="#">🛡️ Anti-Ban</a></li>
-                    <li><a href="#">🎮 Support</a></li>
-                </ul>
-            </nav>
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">A</div>
+                <div>
+                    <div>Welcome, <span id="userDisplayName">Admin</span></div>
+                    <div style="font-size: 0.8rem; color: #aaa;">Premium User</div>
+                </div>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
         </header>
 
         <div class="status-bar">
@@ -680,9 +730,6 @@
             </div>
             <div class="status-item">
                 👥 Active Users: <span style="color: #ffa502; font-weight: 700;">12,847</span>
-            </div>
-            <div class="status-item">
-                ⚡ Version: <span style="color: #1e90ff; font-weight: 700;">v4.2 PRO</span>
             </div>
         </div>
 
@@ -697,7 +744,7 @@
                             <div class="feature-title">Smart Aimbot</div>
                         </div>
                         <div class="feature-desc">
-                            Advanced targeting system with customizable FOV, bone prioritization, and prediction algorithms for precise aiming.
+                            Advanced targeting system with customizable FOV and bone prioritization for precise aiming.
                         </div>
                         <div class="feature-controls">
                             <div class="key-binding">F4</div>
@@ -714,7 +761,7 @@
                             <div class="feature-title">Sniper Aimbot</div>
                         </div>
                         <div class="feature-desc">
-                            Specialized aim assistance for sniper rifles with zero bullet drop, auto-scope, and target leading technology.
+                            Specialized aim assistance for sniper rifles with zero bullet drop and target leading.
                         </div>
                         <div class="feature-controls">
                             <div class="key-binding">F5</div>
@@ -731,7 +778,7 @@
                             <div class="feature-title">Wallhack ESP</div>
                         </div>
                         <div class="feature-desc">
-                            Visual enhancement showing enemy positions, health bars, distance, and loot through walls with customizable colors.
+                            Visual enhancement showing enemy positions, health bars, and loot through walls.
                         </div>
                         <div class="feature-controls">
                             <div class="key-binding">F6</div>
@@ -748,7 +795,7 @@
                             <div class="feature-title">Triggerbot</div>
                         </div>
                         <div class="feature-desc">
-                            Automatic shooting when crosshair is on target with adjustable delay and activation conditions for maximum efficiency.
+                            Automatic shooting when crosshair is on target with adjustable delay settings.
                         </div>
                         <div class="feature-controls">
                             <div class="key-binding">F7</div>
@@ -765,7 +812,7 @@
                             <div class="feature-title">No Recoil</div>
                         </div>
                         <div class="feature-desc">
-                            Complete weapon recoil control with per-weapon customization. Maintain perfect accuracy with any firearm.
+                            Complete weapon recoil control with per-weapon customization for perfect accuracy.
                         </div>
                         <div class="feature-controls">
                             <div class="key-binding">F8</div>
@@ -782,7 +829,7 @@
                             <div class="feature-title">Speed Hack</div>
                         </div>
                         <div class="feature-desc">
-                            Increase movement speed for strategic positioning. Adjustable speed multiplier for different combat situations.
+                            Increase movement speed for strategic positioning with adjustable speed multiplier.
                         </div>
                         <div class="feature-controls">
                             <div class="key-binding">F9</div>
@@ -807,12 +854,12 @@
                 <div class="premium-features">
                     <div class="premium-title">🎯 PREMIUM FEATURES UNLOCKED</div>
                     <ul class="premium-list">
-                        <li>✅ Advanced Anti-Detection System</li>
-                        <li>✅ Auto-Update Technology</li>
-                        <li>✅ 24/7 Priority Support</li>
-                        <li>✅ Exclusive Premium Features</li>
-                        <li>✅ Custom Configuration Profiles</li>
-                        <li>✅ Real-time Performance Monitoring</li>
+                        <li>✅ Advanced Anti-Detection</li>
+                        <li>✅ Auto-Update System</li>
+                        <li>✅ Priority Support</li>
+                        <li>✅ Exclusive Features</li>
+                        <li>✅ Custom Configs</li>
+                        <li>✅ 24/7 Online</li>
                     </ul>
                 </div>
             </div>
@@ -834,7 +881,6 @@
                             <option value="europe">Europe</option>
                             <option value="middle_east">Middle East</option>
                             <option value="america">America</option>
-                            <option value="other">Other</option>
                         </select>
                     </div>
                     
@@ -844,7 +890,7 @@
                             <option value="stealth">Stealth Mode</option>
                             <option value="balanced">Balanced</option>
                             <option value="aggressive">Aggressive</option>
-                            <option value="custom">Custom Profile</option>
+                            <option value="custom">Custom</option>
                         </select>
                     </div>
                     
@@ -878,13 +924,8 @@
         </div>
 
         <footer>
-            <p>© 2023 FFMAX Toolkit Pro - Premium Gaming Assistant | Advanced Features for Professional Gamers</p>
-            <div class="footer-links">
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Contact Support</a>
-                <a href="#">Documentation</a>
-            </div>
+            <p>© 2023 FFMAX Toolkit Pro - Premium Gaming Assistant</p>
+            <p>Advanced features for professional gamers</p>
         </footer>
     </div>
 
@@ -893,7 +934,56 @@
     </div>
 
     <script>
-        // DOM Elements
+        // Login System
+        const loginContainer = document.getElementById('loginContainer');
+        const dashboard = document.getElementById('dashboard');
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const userDisplayName = document.getElementById('userDisplayName');
+        const userAvatar = document.getElementById('userAvatar');
+
+        // Valid credentials
+        const validCredentials = {
+            'admin': 'password123',
+            'user': 'freefire2023',
+            'premium': 'gamingpro'
+        };
+
+        // Login form handler
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (validCredentials[username] && validCredentials[username] === password) {
+                // Successful login
+                userDisplayName.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+                userAvatar.textContent = username.charAt(0).toUpperCase();
+                
+                loginContainer.style.display = 'none';
+                dashboard.style.display = 'block';
+                
+                showNotification(`Welcome back, ${username}!`);
+            } else {
+                // Failed login
+                errorMessage.style.display = 'block';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+
+        // Logout handler
+        logoutBtn.addEventListener('click', function() {
+            dashboard.style.display = 'none';
+            loginContainer.style.display = 'block';
+            loginForm.reset();
+            showNotification('You have been logged out successfully.');
+        });
+
+        // Dashboard functionality
         const playerUID = document.getElementById('playerUID');
         const uidHint = document.getElementById('uidHint');
         const activateBtn = document.getElementById('activateBtn');
@@ -917,14 +1007,13 @@
         const recoilToggle = document.getElementById('recoilToggle');
         const speedToggle = document.getElementById('speedToggle');
 
-        // Validate UID input (only numbers, exactly 10 digits)
+        // Validate UID input
         function validateUID() {
             playerUID.value = playerUID.value.replace(/[^0-9]/g, '');
             if (playerUID.value.length > 10) {
                 playerUID.value = playerUID.value.slice(0, 10);
             }
             
-            // Update UID status and hint
             if (playerUID.value.length === 10) {
                 uidStatus.textContent = 'Valid';
                 uidStatus.style.color = '#2ed573';
@@ -959,7 +1048,6 @@
             btn.innerHTML = '⏳ ACTIVATING...';
             btn.disabled = true;
             
-            // Fake activation process
             setTimeout(() => {
                 toolkitStatus.textContent = 'Active';
                 toolkitStatus.style.color = '#2ed573';
@@ -978,11 +1066,10 @@
         // Apply Settings
         applySettingsBtn.addEventListener('click', function() {
             const btn = this;
-            btn.innerHTML = '⏳ APPLYING SETTINGS...';
+            btn.innerHTML = '⏳ APPLYING...';
             btn.disabled = true;
             fakeLoader.style.display = 'block';
             
-            // Fake apply process
             setTimeout(() => {
                 updateActiveFeatures();
                 lastUpdate.textContent = new Date().toLocaleTimeString();
@@ -1002,7 +1089,6 @@
             btn.innerHTML = '⏳ DOWNLOADING...';
             btn.disabled = true;
             
-            // Fake download process
             setTimeout(() => {
                 showNotification('🚀 Premium version downloaded successfully!');
                 
@@ -1061,6 +1147,5 @@
             validateUID();
         }, 1000);
     </script>
-    ca-app-pub-4906162648020416/9703593640
 </body>
 </html>
