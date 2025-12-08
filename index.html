@@ -3,34 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FluxCheats - Free Fire Items</title>
+    <title>FluxCheats | Free Fire Items & Bundles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #0f4c75;
-            --highlight: #00b4d8;
-            --light: #e6f7ff;
-            --success: #4cc9f0;
-            --danger: #f72585;
+            --primary: #0a0e17;
+            --secondary: #1a2332;
+            --accent: #ff4655;
+            --accent2: #00ff9d;
+            --accent3: #00a8ff;
+            --light: #e8f1f5;
+            --dark: #0c0f1a;
+            --card-bg: rgba(26, 35, 50, 0.8);
+            --gradient: linear-gradient(135deg, #ff4655 0%, #00ff9d 50%, #00a8ff 100%);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: var(--primary);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 70, 85, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 168, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(0, 255, 157, 0.05) 0%, transparent 30%);
             color: var(--light);
+            font-family: 'Exo 2', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
         .container {
-            width: 90%;
+            width: 95%;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
@@ -38,32 +49,15 @@
 
         /* Header */
         header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            padding: 1.5rem 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: sticky;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo h1 {
-            font-size: 2.2rem;
-            background: linear-gradient(to right, var(--highlight), var(--success));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1px;
-        }
-
-        .logo i {
-            font-size: 2rem;
-            color: var(--highlight);
+            border-bottom: 1px solid rgba(255, 70, 85, 0.2);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
         }
 
         .header-content {
@@ -72,76 +66,152 @@
             align-items: center;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--dark);
+            font-weight: 800;
+        }
+
+        .logo h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            color: var(--accent2);
+            letter-spacing: 2px;
+            margin-top: -5px;
+            display: block;
+        }
+
         .login-btn {
-            background: linear-gradient(to right, var(--accent), var(--highlight));
-            color: white;
+            background: linear-gradient(to right, var(--accent), var(--accent2));
+            color: var(--dark);
             border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 70, 85, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 70, 85, 0.5);
         }
 
         /* Hero Section */
         .hero {
-            padding: 3rem 0;
+            padding: 150px 0 80px;
             text-align: center;
-            background: linear-gradient(to bottom, var(--secondary), var(--primary));
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 70, 85, 0.1) 0%, transparent 70%);
+            z-index: -1;
         }
 
         .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--light), var(--success));
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--accent), var(--accent2), var(--accent3));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin: 0 auto 2rem;
-            color: #b3e0f2;
+            margin: 0 auto 3rem;
+            color: #b0c4d4;
+            line-height: 1.8;
         }
 
         /* Tabs Navigation */
+        .tabs-container {
+            background: rgba(26, 35, 50, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .tabs {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
         }
 
         .tab-btn {
-            background: var(--secondary);
+            background: transparent;
             color: var(--light);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
         .tab-btn:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
+            background: rgba(255, 70, 85, 0.1);
+            border-color: var(--accent);
         }
 
         .tab-btn.active {
-            background: linear-gradient(to right, var(--accent), var(--highlight));
+            background: linear-gradient(to right, var(--accent), var(--accent2));
+            color: var(--dark);
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(255, 70, 85, 0.4);
         }
 
         /* Items Grid */
@@ -155,84 +225,136 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
         }
 
         .items-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 4rem;
         }
 
         .item-card {
-            background: var(--secondary);
-            border-radius: 12px;
+            background: var(--card-bg);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
             position: relative;
+            backdrop-filter: blur(10px);
         }
 
         .item-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px rgba(255, 70, 85, 0.2);
+        }
+
+        .item-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .item-img-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
         }
 
         .item-img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .item-card:hover .item-img {
+            transform: scale(1.1);
         }
 
         .item-info {
-            padding: 20px;
+            padding: 25px;
         }
 
         .item-name {
-            font-size: 1.3rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
             margin-bottom: 10px;
-            color: var(--highlight);
+            color: var(--light);
+            font-weight: 700;
         }
 
         .item-type {
-            font-size: 0.9rem;
-            color: #8ac6d1;
-            margin-bottom: 15px;
             display: inline-block;
-            padding: 3px 10px;
-            background: rgba(0, 180, 216, 0.2);
+            font-size: 0.9rem;
+            color: var(--accent2);
+            margin-bottom: 15px;
+            padding: 5px 15px;
+            background: rgba(0, 255, 157, 0.1);
             border-radius: 20px;
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            font-weight: 600;
+        }
+
+        .item-description {
+            color: #b0c4d4;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .send-btn {
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(to right, var(--accent), var(--highlight));
-            color: white;
+            padding: 15px;
+            background: linear-gradient(to right, var(--accent), var(--accent2));
+            color: var(--dark);
             border: none;
-            border-radius: 8px;
-            font-weight: 600;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
+            gap: 10px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
         .send-btn:hover {
-            background: linear-gradient(to right, var(--highlight), var(--success));
-            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--accent2), var(--accent3));
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
         }
 
         /* Modal Styles */
@@ -243,19 +365,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 14, 23, 0.95);
             z-index: 2000;
             justify-content: center;
             align-items: center;
+            backdrop-filter: blur(10px);
         }
 
         .modal-content {
-            background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+            background: var(--card-bg);
             width: 90%;
             max-width: 500px;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             position: relative;
             animation: modalAppear 0.4s ease;
         }
@@ -267,166 +391,298 @@
 
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 20px;
+            right: 25px;
             font-size: 1.8rem;
             color: var(--light);
             cursor: pointer;
             transition: color 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .close-modal:hover {
-            color: var(--danger);
+            color: var(--accent);
+            background: rgba(255, 70, 85, 0.1);
         }
 
         .modal h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--highlight);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             text-align: center;
         }
 
         .input-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .input-group label {
             display: block;
-            margin-bottom: 8px;
-            color: #b3e0f2;
+            margin-bottom: 10px;
+            color: var(--accent2);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .input-group input {
             width: 100%;
-            padding: 14px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
             color: white;
             font-size: 1rem;
+            font-family: 'Exo 2', sans-serif;
+            transition: all 0.3s;
         }
 
         .input-group input:focus {
             outline: none;
-            border-color: var(--highlight);
+            border-color: var(--accent);
+            background: rgba(255, 70, 85, 0.05);
         }
 
         .modal-send-btn {
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(to right, #4cc9f0, #4895ef);
-            color: white;
+            padding: 18px;
+            background: linear-gradient(to right, var(--accent), var(--accent2));
+            color: var(--dark);
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
+            gap: 12px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 10px;
         }
 
         .modal-send-btn:hover {
-            background: linear-gradient(to right, #4895ef, #4361ee);
+            background: linear-gradient(to right, var(--accent2), var(--accent3));
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.3);
         }
 
         /* Login Modal */
         .login-modal .modal-content {
-            max-width: 450px;
+            max-width: 500px;
         }
 
         .password-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .password-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--success);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .password-section h4 i {
+            font-size: 1.5rem;
         }
 
         /* Animation */
         .loader {
             display: none;
-            width: 50px;
-            height: 50px;
-            margin: 20px auto;
-            border: 5px solid rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .loader-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid transparent;
+            border-top-color: var(--accent);
             border-radius: 50%;
-            border-top-color: var(--highlight);
             animation: spin 1s linear infinite;
         }
 
+        .loader-circle:nth-child(2) {
+            border-top-color: var(--accent2);
+            animation-delay: 0.2s;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+        }
+
+        .loader-circle:nth-child(3) {
+            border-top-color: var(--accent3);
+            animation-delay: 0.4s;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+        }
+
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .success-message {
             display: none;
             text-align: center;
-            padding: 20px;
-            background: rgba(76, 201, 240, 0.1);
-            border-radius: 10px;
-            margin-top: 20px;
-            color: var(--success);
+            padding: 30px;
+            background: rgba(0, 255, 157, 0.05);
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 1px solid rgba(0, 255, 157, 0.1);
         }
 
         .success-message i {
-            font-size: 3rem;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--accent2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .success-message h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
             margin-bottom: 15px;
-            color: var(--success);
+            color: var(--accent2);
+        }
+
+        .success-message p {
+            color: #b0c4d4;
+            line-height: 1.6;
         }
 
         /* Footer */
         footer {
-            background: var(--secondary);
-            padding: 2.5rem 0;
+            background: rgba(10, 14, 23, 0.9);
+            padding: 3rem 0;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 70, 85, 0.2);
+            margin-top: 4rem;
+            backdrop-filter: blur(10px);
         }
 
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
             gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .copyright {
-            color: #8ac6d1;
+            color: #8a9bb2;
             font-size: 0.9rem;
+            max-width: 700px;
+            line-height: 1.8;
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 25px;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 gap: 20px;
             }
             
+            .hero {
+                padding: 180px 0 60px;
+            }
+            
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                padding: 12px 20px;
+            }
+            
+            .modal-content {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .hero h2 {
                 font-size: 2rem;
             }
             
-            .items-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 20px;
+            .section-title {
+                font-size: 1.8rem;
             }
             
-            .tabs {
-                gap: 5px;
-            }
-            
-            .tab-btn {
-                padding: 10px 15px;
-                font-size: 0.9rem;
+            .logo h1 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -437,8 +693,11 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-fire"></i>
-                    <h1>FluxCheats</h1>
+                    <div class="logo-icon">F</div>
+                    <div>
+                        <h1>FLUXCHEATS</h1>
+                        <span>FREE FIRE ITEMS PORTAL</span>
+                    </div>
                 </div>
                 <button class="login-btn" id="openLoginModal">
                     <i class="fas fa-plus"></i>
@@ -451,23 +710,24 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Free Fire Items Collection</h2>
-            <p>Get exclusive access to all Free Fire emotes, Evo Guns, and rare bundles. Select any item and send it to your Free Fire account instantly.</p>
+            <h2>UNLOCK ALL FREE FIRE ITEMS</h2>
+            <p>Access the complete collection of Free Fire emotes, evolution guns, and exclusive bundles. Select any item and send it directly to your Free Fire account with just a few clicks.</p>
+            
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="emotes">Emotes</button>
+                    <button class="tab-btn" data-tab="evo-guns">Evo Guns</button>
+                    <button class="tab-btn" data-tab="bundles">Rare Bundles</button>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Tabs Navigation -->
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="emotes">Emotes</button>
-            <button class="tab-btn" data-tab="evo-guns">Evo Guns</button>
-            <button class="tab-btn" data-tab="bundles">Rare Bundles</button>
-        </div>
-
         <!-- Emotes Tab -->
         <div id="emotes" class="tab-content active">
-            <h2 class="section-title">Free Fire Emotes</h2>
+            <h2 class="section-title">FREE FIRE EMOTES</h2>
             <div class="items-grid" id="emotes-grid">
                 <!-- Emotes will be populated by JavaScript -->
             </div>
@@ -475,7 +735,7 @@
 
         <!-- Evo Guns Tab -->
         <div id="evo-guns" class="tab-content">
-            <h2 class="section-title">Evolution Guns</h2>
+            <h2 class="section-title">EVOLUTION GUNS</h2>
             <div class="items-grid" id="evo-guns-grid">
                 <!-- Evo Guns will be populated by JavaScript -->
             </div>
@@ -483,7 +743,7 @@
 
         <!-- Bundles Tab -->
         <div id="bundles" class="tab-content">
-            <h2 class="section-title">Rare Bundles</h2>
+            <h2 class="section-title">RARE BUNDLES</h2>
             <div class="items-grid" id="bundles-grid">
                 <!-- Bundles will be populated by JavaScript -->
             </div>
@@ -494,11 +754,11 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="logo">
-                    <i class="fas fa-fire"></i>
-                    <h1>FluxCheats</h1>
+                <div class="footer-logo">
+                    <div class="logo-icon" style="width: 40px; height: 40px; font-size: 1.4rem;">F</div>
+                    <h3>FLUXCHEATS</h3>
                 </div>
-                <p class="copyright">© 2023 FluxCheats. This site is not affiliated with Garena Free Fire. All game content and trademarks are property of their respective owners.</p>
+                <p class="copyright">© 2023 FluxCheats. This website is a fan-made portal for Free Fire enthusiasts. All game content, images and trademarks are property of Garena Free Fire. This site is not affiliated with Garena or Free Fire.</p>
             </div>
         </div>
     </footer>
@@ -507,9 +767,9 @@
     <div class="modal" id="sendModal">
         <div class="modal-content">
             <span class="close-modal" id="closeSendModal">&times;</span>
-            <h3>Send Item to Your Account</h3>
+            <h3>SEND ITEM</h3>
             <div class="input-group">
-                <label for="itemName">Item Selected</label>
+                <label for="itemName">Selected Item</label>
                 <input type="text" id="itemName" readonly>
             </div>
             <div class="input-group">
@@ -517,17 +777,21 @@
                 <input type="text" id="uid" placeholder="e.g., 1234567890" maxlength="10">
             </div>
             <button class="modal-send-btn" id="modalSendBtn">
-                <i class="fas fa-gift"></i>
-                Send Item
+                <i class="fas fa-paper-plane"></i>
+                SEND TO ACCOUNT
             </button>
             
-            <div class="loader" id="sendLoader"></div>
+            <div class="loader" id="sendLoader">
+                <div class="loader-circle"></div>
+                <div class="loader-circle"></div>
+                <div class="loader-circle"></div>
+            </div>
             
             <div class="success-message" id="successMessage">
                 <i class="fas fa-check-circle"></i>
-                <h3>Successfully Gifted!</h3>
-                <p>Please check your email after 24 hours to claim your item.</p>
-                <p>Your item will be delivered to your Free Fire account.</p>
+                <h3>ITEM SUCCESSFULLY GIFTED!</h3>
+                <p>Your item has been queued for delivery. Please check your registered email after 24 hours to claim your item.</p>
+                <p>Delivery confirmation will be sent to your email address.</p>
             </div>
         </div>
     </div>
@@ -536,62 +800,69 @@
     <div class="modal login-modal" id="loginModal">
         <div class="modal-content">
             <span class="close-modal" id="closeLoginModal">&times;</span>
-            <h3>FluxCheats Login</h3>
-            <p style="text-align: center; margin-bottom: 25px; color: #b3e0f2;">Enter the required passwords to access premium features</p>
+            <h3>FLUXCHEATS LOGIN</h3>
+            <p style="text-align: center; margin-bottom: 30px; color: #b0c4d4;">Enter the required passwords to access premium features</p>
             
             <div class="password-section">
                 <h4><i class="fab fa-youtube"></i> YouTube Password</h4>
-                <input type="password" id="youtubePassword" placeholder="Enter YouTube password">
+                <input type="password" id="youtubePassword" placeholder="Enter YouTube password (2025)">
             </div>
             
             <div class="password-section">
                 <h4><i class="fab fa-telegram"></i> Telegram Password</h4>
-                <input type="password" id="telegramPassword" placeholder="Enter Telegram password">
+                <input type="password" id="telegramPassword" placeholder="Enter Telegram password (2026)">
             </div>
             
             <button class="modal-send-btn" id="loginBtn">
                 <i class="fas fa-sign-in-alt"></i>
-                Login
+                LOGIN TO PORTAL
             </button>
             
             <div class="success-message" id="loginSuccessMessage" style="display: none;">
                 <i class="fas fa-check-circle"></i>
-                <h3>Login Successful!</h3>
-                <p>Welcome to FluxCheats premium access.</p>
+                <h3>LOGIN SUCCESSFUL!</h3>
+                <p>Welcome to FluxCheats premium access portal.</p>
+                <p>You now have full access to all items and features.</p>
             </div>
             
-            <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #8ac6d1;">
-                Note: Contact admin for password updates
+            <p style="text-align: center; margin-top: 25px; font-size: 0.9rem; color: #8a9bb2;">
+                Note: Contact admin for password updates or assistance
             </p>
         </div>
     </div>
 
     <script>
-        // Item Data
+        // Realistic Free Fire Items Data with actual item names
         const itemsData = {
             emotes: [
-                { id: 1, name: "Take the L", type: "Emote", img: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 2, name: "Floss Dance", type: "Emote", img: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 3, name: "Orange Justice", type: "Emote", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 4, name: "Dab", type: "Emote", img: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 5, name: "Electro Shuffle", type: "Emote", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FtaW5nJTIwZW1vdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" },
-                { id: 6, name: "Living Large", type: "Emote", img: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z2FtaW5nJTIwZW1vdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" }
+                { id: 1, name: "LOL Emote", type: "Legendary Emote", img: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Popular laughing emote with animated effects" },
+                { id: 2, name: "Take The L", type: "Rare Emote", img: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Iconic L-shaped victory dance emote" },
+                { id: 3, name: "Floss Dance", type: "Epic Emote", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Trendy dance move with smooth animations" },
+                { id: 4, name: "Orange Justice", type: "Legendary Emote", img: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Energetic dance with orange glow effects" },
+                { id: 5, name: "Electro Shuffle", type: "Epic Emote", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FtaW5nJTIwZW1vdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", description: "Electric dance with lightning effects" },
+                { id: 6, name: "Living Large", type: "Rare Emote", img: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z2FtaW5nJTIwZW1vdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", description: "Show off your victory with style" },
+                { id: 7, name: "Dab", type: "Classic Emote", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Classic dab emote for celebrations" },
+                { id: 8, name: "Gangnam Style", type: "Legendary Emote", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z2FtaW5nJTIwZW1vdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", description: "Iconic dance move from worldwide hit" }
             ],
             evoGuns: [
-                { id: 7, name: "M4A1 - Cyber Revolution", type: "Evo Gun", img: "https://images.unsplash.com/photo-1595263182069-10af156e9b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 8, name: "AK47 - Dragon Spirit", type: "Evo Gun", img: "https://images.unsplash.com/photo-1585773690161-7b5cd5feb7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 9, name: "AWM - Neon Pulse", type: "Evo Gun", img: "https://images.unsplash.com/photo-1585773811203-e7b0a8e8e2d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 10, name: "MP40 - Golden King", type: "Evo Gun", img: "https://images.unsplash.com/photo-1585773860736-4d4c9ae9dafc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 11, name: "SCAR - Fire Spirit", type: "Evo Gun", img: "https://images.unsplash.com/photo-1595263181903-8d2f9e7b1d2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" },
-                { id: 12, name: "UMP - Cybernetic", type: "Evo Gun", img: "https://images.unsplash.com/photo-1595624870715-6b2bbf9724df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" }
+                { id: 9, name: "AK47 - Dragon Spirit Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1585773690161-7b5cd5feb7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Fully evolved AK47 with dragon spirit effects" },
+                { id: 10, name: "M4A1 - Cyber Revolution Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1595263182069-10af156e9b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Cyber-themed M4A1 with neon effects" },
+                { id: 11, name: "AWM - Neon Pulse Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1585773811203-e7b0a8e8e2d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Sniper rifle with pulsating neon effects" },
+                { id: 12, name: "Cobra MP40 - Gold King Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1585773860736-4d4c9ae9dafc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Golden MP40 with royal cobra design" },
+                { id: 13, name: "SCAR - Fire Spirit Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1595263181903-8d2f9e7b1d2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Flaming SCAR with spirit animations" },
+                { id: 14, name: "UMP - Cybernetic Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1595624870715-6b2bbf9724df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Cybernetic UMP with advanced tech design" },
+                { id: 15, name: "M1887 - Dragon Breath Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Shotgun with dragon breath fire effects" },
+                { id: 16, name: "P90 - Neon Rider Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1595263181851-7b5f0c7bce1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Neon-themed P90 with rider aesthetics" }
             ],
             bundles: [
-                { id: 13, name: "Hip Hop Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGlwJTIwaG9wfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 14, name: "Sakura Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FrdXJhfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 15, name: "Dragon Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZHJhZ29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 16, name: "Cyberpunk Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3liZXJwdW5rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
-                { id: 17, name: "Galactic Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" },
-                { id: 18, name: "Phantom Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3Bvb2t5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" }
+                { id: 17, name: "Hip Hop Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGlwJTIwaG9wfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Street style outfit with hip hop accessories" },
+                { id: 18, name: "Sakura Bundle", type: "Exclusive Bundle", img: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FrdXJhfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Japanese cherry blossom themed bundle" },
+                { id: 19, name: "Dragon Warrior Bundle", type: "Legendary Bundle", img: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZHJhZ29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Ancient dragon warrior armor set" },
+                { id: 20, name: "Cyberpunk Bundle", type: "Epic Bundle", img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3liZXJwdW5rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Futuristic cyberpunk outfit with neon lights" },
+                { id: 21, name: "Galactic Commander Bundle", type: "Legendary Bundle", img: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=80", description: "Space commander outfit with galaxy effects" },
+                { id: 22, name: "Phantom Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3Bvb2t5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Ghostly phantom outfit with transparent effects" },
+                { id: 23, name: "Golden Pharaoh Bundle", type: "Exclusive Bundle", img: "https://images.unsplash.com/photo-1530133532239-eda6f53fcf0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhhcmFvaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Ancient Egyptian pharaoh golden outfit" },
+                { id: 24, name: "Ice Queen Bundle", type: "Legendary Bundle", img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aWNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Frozen ice queen outfit with frost effects" }
             ]
         };
 
@@ -610,6 +881,7 @@
         const uidInput = document.getElementById('uid');
         const loginBtn = document.getElementById('loginBtn');
         const loginSuccessMessage = document.getElementById('loginSuccessMessage');
+        let isLoggedIn = false;
 
         // Initialize the page with items
         document.addEventListener('DOMContentLoaded', () => {
@@ -631,13 +903,16 @@
                 const itemCard = document.createElement('div');
                 itemCard.className = 'item-card';
                 itemCard.innerHTML = `
-                    <img src="${item.img}" alt="${item.name}" class="item-img">
+                    <div class="item-img-container">
+                        <img src="${item.img}" alt="${item.name}" class="item-img">
+                    </div>
                     <div class="item-info">
                         <h3 class="item-name">${item.name}</h3>
                         <span class="item-type">${item.type}</span>
+                        <p class="item-description">${item.description}</p>
                         <button class="send-btn" data-id="${item.id}" data-name="${item.name}">
                             <i class="fas fa-gift"></i>
-                            Send
+                            Send to Account
                         </button>
                     </div>
                 `;
@@ -648,6 +923,11 @@
             const sendButtons = grid.querySelectorAll('.send-btn');
             sendButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
+                    if (!isLoggedIn) {
+                        alert('Please login first to send items!');
+                        loginModal.style.display = 'flex';
+                        return;
+                    }
                     const itemId = btn.getAttribute('data-id');
                     const itemName = btn.getAttribute('data-name');
                     openSendModal(itemName);
@@ -680,6 +960,7 @@
             sendModal.style.display = 'flex';
             successMessage.style.display = 'none';
             sendLoader.style.display = 'none';
+            modalSendBtn.style.display = 'flex';
             uidInput.value = '';
         }
 
@@ -717,19 +998,28 @@
                 sendLoader.style.display = 'none';
                 successMessage.style.display = 'block';
                 
-                // Reset after 3 seconds
+                // Reset after 5 seconds and close modal
                 setTimeout(() => {
+                    sendModal.style.display = 'none';
                     modalSendBtn.style.display = 'flex';
-                }, 3000);
-            }, 2000);
+                }, 5000);
+            }, 3000);
         });
 
         // Open login modal
         openLoginModalBtn.addEventListener('click', () => {
+            if (isLoggedIn) {
+                // Logout functionality
+                isLoggedIn = false;
+                openLoginModalBtn.innerHTML = '<i class="fas fa-plus"></i> Login';
+                alert('You have been logged out successfully.');
+                return;
+            }
             loginModal.style.display = 'flex';
             document.getElementById('youtubePassword').value = '';
             document.getElementById('telegramPassword').value = '';
             loginSuccessMessage.style.display = 'none';
+            loginBtn.style.display = 'flex';
         });
 
         // Close login modal
@@ -746,19 +1036,32 @@
             if (youtubePass === '2025' && telegramPass === '2026') {
                 loginSuccessMessage.style.display = 'block';
                 loginBtn.style.display = 'none';
+                isLoggedIn = true;
                 
                 // Change login button to logout after successful login
                 setTimeout(() => {
                     loginModal.style.display = 'none';
                     openLoginModalBtn.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
-                    openLoginModalBtn.onclick = () => {
-                        openLoginModalBtn.innerHTML = '<i class="fas fa-plus"></i> Login';
-                        openLoginModalBtn.onclick = () => loginModal.style.display = 'flex';
-                        alert('You have been logged out successfully.');
-                    };
                 }, 2000);
             } else {
-                alert('Incorrect passwords. Please try again.');
+                alert('Incorrect passwords. Please try again.\nYouTube Password: 2025\nTelegram Password: 2026');
+            }
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes modals
+            if (e.key === 'Escape') {
+                sendModal.style.display = 'none';
+                loginModal.style.display = 'none';
+            }
+            
+            // Ctrl+L opens login modal
+            if (e.ctrlKey && e.key === 'l') {
+                e.preventDefault();
+                if (!isLoggedIn) {
+                    loginModal.style.display = 'flex';
+                }
             }
         });
     </script>
