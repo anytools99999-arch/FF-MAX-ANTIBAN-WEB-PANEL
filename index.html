@@ -287,12 +287,16 @@
             height: 200px;
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, rgba(255,70,85,0.1), rgba(0,255,157,0.1));
         }
 
         .item-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
@@ -685,6 +689,23 @@
                 font-size: 1.8rem;
             }
         }
+
+        /* Free Fire Color Badges */
+        .rarity-common { color: #b0c4d4; }
+        .rarity-rare { color: #00a8ff; }
+        .rarity-epic { color: #9d4edd; }
+        .rarity-legendary { color: #ff9e00; }
+        .rarity-mythic { color: #ff4655; }
+        
+        .item-rarity {
+            display: inline-block;
+            font-size: 0.85rem;
+            margin-left: 10px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
 <body>
@@ -832,37 +853,218 @@
     </div>
 
     <script>
-        // Realistic Free Fire Items Data with actual item names
+        // Realistic Free Fire Items Data with actual Free Fire images
         const itemsData = {
             emotes: [
-                { id: 1, name: "LOL Emote", type: "Legendary Emote", img: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Popular laughing emote with animated effects" },
-                { id: 2, name: "Take The L", type: "Rare Emote", img: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Iconic L-shaped victory dance emote" },
-                { id: 3, name: "Floss Dance", type: "Epic Emote", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Trendy dance move with smooth animations" },
-                { id: 4, name: "Orange Justice", type: "Legendary Emote", img: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Energetic dance with orange glow effects" },
-                { id: 5, name: "Electro Shuffle", type: "Epic Emote", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FtaW5nJTIwZW1vdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", description: "Electric dance with lightning effects" },
-                { id: 6, name: "Living Large", type: "Rare Emote", img: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z2FtaW5nJTIwZW1vdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", description: "Show off your victory with style" },
-                { id: 7, name: "Dab", type: "Classic Emote", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGdhbWluZyUyMGVtb3RlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", description: "Classic dab emote for celebrations" },
-                { id: 8, name: "Gangnam Style", type: "Legendary Emote", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z2FtaW5nJTIwZW1vdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", description: "Iconic dance move from worldwide hit" }
+                { 
+                    id: 1, 
+                    name: "LOL Emote", 
+                    type: "Legendary Emote", 
+                    img: "https://i.ibb.co/1RQV4hH/emote1.png",
+                    rarity: "legendary",
+                    description: "Popular laughing emote with animated LOL text and character laughing animation"
+                },
+                { 
+                    id: 2, 
+                    name: "Take The L", 
+                    type: "Epic Emote", 
+                    img: "https://i.ibb.co/KW8tzWV/emote2.png", 
+                    rarity: "epic",
+                    description: "Iconic L-shaped victory dance emote with particle effects"
+                },
+                { 
+                    id: 3, 
+                    name: "Floss Dance", 
+                    type: "Rare Emote", 
+                    img: "https://i.ibb.co/4f6V3hC/emote3.png",
+                    rarity: "rare",
+                    description: "Trendy dance move with smooth swinging arm animations"
+                },
+                { 
+                    id: 4, 
+                    name: "Orange Justice", 
+                    type: "Legendary Emote", 
+                    img: "https://i.ibb.co/J7VwVfc/emote4.png",
+                    rarity: "legendary",
+                    description: "Energetic dance with orange glow effects and music"
+                },
+                { 
+                    id: 5, 
+                    name: "Electro Shuffle", 
+                    type: "Mythic Emote", 
+                    img: "https://i.ibb.co/4Pscx3D/emote5.png",
+                    rarity: "mythic",
+                    description: "Electric dance with lightning effects and glowing trails"
+                },
+                { 
+                    id: 6, 
+                    name: "Living Large", 
+                    type: "Epic Emote", 
+                    img: "https://i.ibb.co/0ZpQd0b/emote6.png",
+                    rarity: "epic",
+                    description: "Show off your victory with money shower and luxury animations"
+                },
+                { 
+                    id: 7, 
+                    name: "Dab", 
+                    type: "Rare Emote", 
+                    img: "https://i.ibb.co/Gtd3hHf/emote7.png",
+                    rarity: "rare",
+                    description: "Classic dab emote for celebrations with smooth transitions"
+                },
+                { 
+                    id: 8, 
+                    name: "Gangnam Style", 
+                    type: "Legendary Emote", 
+                    img: "https://i.ibb.co/8b8yL4c/emote8.png",
+                    rarity: "legendary",
+                    description: "Iconic horse dance move from worldwide hit with music"
+                }
             ],
             evoGuns: [
-                { id: 9, name: "AK47 - Dragon Spirit Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1585773690161-7b5cd5feb7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Fully evolved AK47 with dragon spirit effects" },
-                { id: 10, name: "M4A1 - Cyber Revolution Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1595263182069-10af156e9b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Cyber-themed M4A1 with neon effects" },
-                { id: 11, name: "AWM - Neon Pulse Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1585773811203-e7b0a8e8e2d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Sniper rifle with pulsating neon effects" },
-                { id: 12, name: "Cobra MP40 - Gold King Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1585773860736-4d4c9ae9dafc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3VufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Golden MP40 with royal cobra design" },
-                { id: 13, name: "SCAR - Fire Spirit Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1595263181903-8d2f9e7b1d2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Flaming SCAR with spirit animations" },
-                { id: 14, name: "UMP - Cybernetic Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1595624870715-6b2bbf9724df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Cybernetic UMP with advanced tech design" },
-                { id: 15, name: "M1887 - Dragon Breath Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Shotgun with dragon breath fire effects" },
-                { id: 16, name: "P90 - Neon Rider Max", type: "Max Evolution", img: "https://images.unsplash.com/photo-1595263181851-7b5f0c7bce1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGd1bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Neon-themed P90 with rider aesthetics" }
+                { 
+                    id: 9, 
+                    name: "AK47 - Dragon Spirit Max", 
+                    type: "Max Evolution", 
+                    img: "https://i.ibb.co/9gNs6Z9/ak47-max.png",
+                    rarity: "mythic",
+                    description: "Fully evolved AK47 with dragon spirit effects, glowing eyes and fire trails"
+                },
+                { 
+                    id: 10, 
+                    name: "M4A1 - Cyber Revolution Max", 
+                    type: "Max Evolution", 
+                    img: "https://i.ibb.co/JQdXYTs/m4a1-max.png",
+                    rarity: "mythic",
+                    description: "Cyber-themed M4A1 with neon effects, holographic sights and digital camo"
+                },
+                { 
+                    id: 11, 
+                    name: "AWM - Neon Pulse Max", 
+                    type: "Max Evolution", 
+                    img: "https://i.ibb.co/5GXvj3n/awm-max.png",
+                    rarity: "legendary",
+                    description: "Sniper rifle with pulsating neon effects, scope glows and energy bullets"
+                },
+                { 
+                    id: 12, 
+                    name: "Cobra MP40 - Gold King Max", 
+                    type: "Max Evolution", 
+                    img: "https://i.ibb.co/qgRm8hK/mp40-max.png",
+                    rarity: "mythic",
+                    description: "Golden MP40 with royal cobra design, snake animations and jewel encrusted"
+                },
+                { 
+                    id: 13, 
+                    name: "SCAR - Fire Spirit Max", 
+                    type: "Max Evolution", 
+                    img: "https://i.ibb.co/tK86SJc/scar-max.png",
+                    rarity: "legendary",
+                    description: "Flaming SCAR with spirit animations, fire effects and smoke trails"
+                },
+                { 
+                    id: 14, 
+                    name: "UMP - Cybernetic Max", 
+                    type: "Max Evolution", 
+                    img: "https://i.ibb.co/JqSbmV4/ump-max.png",
+                    rarity: "epic",
+                    description: "Cybernetic UMP with advanced tech design, laser sights and digital display"
+                },
+                { 
+                    id: 15, 
+                    name: "M1887 - Dragon Breath Max", 
+                    type: "Max Evolution", 
+                    img: "https://i.ibb.co/7CHFqLk/m1887-max.png",
+                    rarity: "legendary",
+                    description: "Shotgun with dragon breath fire effects, scale texture and smoke particles"
+                },
+                { 
+                    id: 16, 
+                    name: "P90 - Neon Rider Max", 
+                    type: "Max Evolution", 
+                    img: "https://i.ibb.co/D9GFpYk/p90-max.png",
+                    rarity: "epic",
+                    description: "Neon-themed P90 with rider aesthetics, glowing tracks and speed lines"
+                }
             ],
             bundles: [
-                { id: 17, name: "Hip Hop Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGlwJTIwaG9wfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Street style outfit with hip hop accessories" },
-                { id: 18, name: "Sakura Bundle", type: "Exclusive Bundle", img: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FrdXJhfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Japanese cherry blossom themed bundle" },
-                { id: 19, name: "Dragon Warrior Bundle", type: "Legendary Bundle", img: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZHJhZ29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Ancient dragon warrior armor set" },
-                { id: 20, name: "Cyberpunk Bundle", type: "Epic Bundle", img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3liZXJwdW5rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Futuristic cyberpunk outfit with neon lights" },
-                { id: 21, name: "Galactic Commander Bundle", type: "Legendary Bundle", img: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=80", description: "Space commander outfit with galaxy effects" },
-                { id: 22, name: "Phantom Bundle", type: "Rare Bundle", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3Bvb2t5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Ghostly phantom outfit with transparent effects" },
-                { id: 23, name: "Golden Pharaoh Bundle", type: "Exclusive Bundle", img: "https://images.unsplash.com/photo-1530133532239-eda6f53fcf0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhhcmFvaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80", description: "Ancient Egyptian pharaoh golden outfit" },
-                { id: 24, name: "Ice Queen Bundle", type: "Legendary Bundle", img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aWNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80", description: "Frozen ice queen outfit with frost effects" }
+                { 
+                    id: 17, 
+                    name: "Hip Hop Bundle", 
+                    type: "Rare Bundle", 
+                    img: "https://i.ibb.co/wLzkd1T/hiphop-bundle.png",
+                    rarity: "rare",
+                    description: "Street style outfit with gold chains, snapback cap, baggy jeans and sneakers"
+                },
+                { 
+                    id: 18, 
+                    name: "Sakura Bundle", 
+                    type: "Exclusive Bundle", 
+                    img: "https://i.ibb.co/2dW1s0t/sakura-bundle.png",
+                    rarity: "legendary",
+                    description: "Japanese cherry blossom themed kimono, floral patterns and seasonal effects"
+                },
+                { 
+                    id: 19, 
+                    name: "Dragon Warrior Bundle", 
+                    type: "Legendary Bundle", 
+                    img: "https://i.ibb.co/vsxdyhP/dragon-bundle.png",
+                    rarity: "legendary",
+                    description: "Ancient dragon warrior armor set with scale mail, helmet and dragon crest"
+                },
+                { 
+                    id: 20, 
+                    name: "Cyberpunk Bundle", 
+                    type: "Mythic Bundle", 
+                    img: "https://i.ibb.co/4W9cZPM/cyberpunk-bundle.png",
+                    rarity: "mythic",
+                    description: "Futuristic cyberpunk outfit with neon lights, holographic elements and tech gear"
+                },
+                { 
+                    id: 21, 
+                    name: "Galactic Commander Bundle", 
+                    type: "Legendary Bundle", 
+                    img: "https://i.ibb.co/zS55vNY/galactic-bundle.png",
+                    rarity: "legendary",
+                    description: "Space commander outfit with galaxy patterns, star effects and cosmic aura"
+                },
+                { 
+                    id: 22, 
+                    name: "Phantom Bundle", 
+                    type: "Epic Bundle", 
+                    img: "https://i.ibb.co/DgQRv9T/phantom-bundle.png",
+                    rarity: "epic",
+                    description: "Ghostly phantom outfit with transparent effects, mist aura and ethereal glow"
+                },
+                { 
+                    id: 23, 
+                    name: "Golden Pharaoh Bundle", 
+                    type: "Mythic Bundle", 
+                    img: "https://i.ibb.co/mbMsJT1/pharaoh-bundle.png",
+                    rarity: "mythic",
+                    description: "Ancient Egyptian pharaoh golden outfit with hieroglyphics and ankh symbols"
+                },
+                { 
+                    id: 24, 
+                    name: "Ice Queen Bundle", 
+                    type: "Legendary Bundle", 
+                    img: "https://i.ibb.co/f1MWj76/ice-bundle.png",
+                    rarity: "legendary",
+                    description: "Frozen ice queen outfit with frost effects, snow particles and crystal crown"
+                }
+            ]
+        };
+
+        // Fallback images in case the primary images don't load
+        const fallbackImages = {
+            emotes: [
+                "🎮", "😂", "💃", "🕺", "⚡", "💰", "👋", "🐎"
+            ],
+            evoGuns: [
+                "🔫🐲", "🔫💻", "🔫🎯", "🔫🐍", "🔫🔥", "🔫⚙️", "🔫💨", "🔫🚀"
+            ],
+            bundles: [
+                "👕🎤", "👘🌸", "🛡️🐉", "👓💾", "👨‍🚀🌌", "👻💨", "👑🐪", "👸❄️"
             ]
         };
 
@@ -885,9 +1087,9 @@
 
         // Initialize the page with items
         document.addEventListener('DOMContentLoaded', () => {
-            populateItems('emotes', 'emotes-grid');
-            populateItems('evoGuns', 'evo-guns-grid');
-            populateItems('bundles', 'bundles-grid');
+            populateItems('emotes', 'emotes-grid', 0);
+            populateItems('evoGuns', 'evo-guns-grid', 1);
+            populateItems('bundles', 'bundles-grid', 2);
             
             // Set active tab
             tabBtns[0].classList.add('active');
@@ -895,19 +1097,26 @@
         });
 
         // Function to populate items in grid
-        function populateItems(category, gridId) {
+        function populateItems(category, gridId, fallbackIndex) {
             const grid = document.getElementById(gridId);
             grid.innerHTML = '';
             
-            itemsData[category].forEach(item => {
+            itemsData[category].forEach((item, index) => {
                 const itemCard = document.createElement('div');
                 itemCard.className = 'item-card';
+                
+                const rarityClass = `rarity-${item.rarity}`;
+                const rarityText = item.rarity.charAt(0).toUpperCase() + item.rarity.slice(1);
+                
                 itemCard.innerHTML = `
                     <div class="item-img-container">
-                        <img src="${item.img}" alt="${item.name}" class="item-img">
+                        <img src="${item.img}" alt="${item.name}" class="item-img" 
+                             onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\"font-size: 4rem;\">${fallbackImages[category][index]}</div>';">
                     </div>
                     <div class="item-info">
-                        <h3 class="item-name">${item.name}</h3>
+                        <h3 class="item-name">${item.name}
+                            <span class="item-rarity ${rarityClass}">${rarityText}</span>
+                        </h3>
                         <span class="item-type">${item.type}</span>
                         <p class="item-description">${item.description}</p>
                         <button class="send-btn" data-id="${item.id}" data-name="${item.name}">
@@ -962,6 +1171,7 @@
             sendLoader.style.display = 'none';
             modalSendBtn.style.display = 'flex';
             uidInput.value = '';
+            uidInput.focus();
         }
 
         // Close send modal
@@ -986,6 +1196,7 @@
             // Validate UID
             if (!uid || uid.length !== 10 || isNaN(uid)) {
                 alert('Please enter a valid 10-digit Free Fire UID');
+                uidInput.focus();
                 return;
             }
             
@@ -1020,6 +1231,7 @@
             document.getElementById('telegramPassword').value = '';
             loginSuccessMessage.style.display = 'none';
             loginBtn.style.display = 'flex';
+            document.getElementById('youtubePassword').focus();
         });
 
         // Close login modal
@@ -1042,9 +1254,13 @@
                 setTimeout(() => {
                     loginModal.style.display = 'none';
                     openLoginModalBtn.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+                    alert('Welcome to FluxCheats Premium! You now have access to all items.');
                 }, 2000);
             } else {
-                alert('Incorrect passwords. Please try again.\nYouTube Password: 2025\nTelegram Password: 2026');
+                alert('Incorrect passwords. Please try again.\n\nYouTube Password: 2025\nTelegram Password: 2026');
+                document.getElementById('youtubePassword').value = '';
+                document.getElementById('telegramPassword').value = '';
+                document.getElementById('youtubePassword').focus();
             }
         });
 
@@ -1063,6 +1279,16 @@
                     loginModal.style.display = 'flex';
                 }
             }
+            
+            // Enter key in login modal triggers login
+            if (e.key === 'Enter' && loginModal.style.display === 'flex') {
+                loginBtn.click();
+            }
+        });
+
+        // Form validation for UID
+        uidInput.addEventListener('input', function() {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
         });
     </script>
 </body>
