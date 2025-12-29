@@ -3,61 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FluxCheats | Free Fire Items & Bundles</title>
+    <title>GameHub | Play PC & Mobile Games</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #0a0e17;
-            --secondary: #1a2332;
-            --accent: #ff4655;
-            --accent2: #00ff9d;
-            --accent3: #00a8ff;
-            --light: #e8f1f5;
-            --dark: #0c0f1a;
-            --card-bg: rgba(26, 35, 50, 0.8);
-            --gradient: linear-gradient(135deg, #ff4655 0%, #00ff9d 50%, #00a8ff 100%);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --dark-color: #121826;
+            --light-color: #f8f9fa;
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
+            --danger-color: #e17055;
+            --pc-color: #2575fc;
+            --mobile-color: #00b894;
+        }
+
         body {
-            background-color: var(--primary);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 70, 85, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(0, 168, 255, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(0, 255, 157, 0.05) 0%, transparent 30%);
-            color: var(--light);
-            font-family: 'Exo 2', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light-color);
             line-height: 1.6;
-            overflow-x: hidden;
             min-height: 100vh;
         }
 
         .container {
-            width: 95%;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header Styles */
         header {
-            background: rgba(10, 14, 23, 0.95);
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(10px);
-            padding: 1.2rem 0;
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 70, 85, 0.2);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+            z-index: 100;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .header-content {
@@ -69,660 +59,472 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--dark);
-            font-weight: 800;
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
         }
 
         .logo h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: var(--gradient);
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: 1.5px;
-            text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
         }
 
-        .logo span {
+        .tagline {
             font-size: 0.9rem;
-            color: var(--accent2);
-            letter-spacing: 2px;
-            margin-top: -5px;
-            display: block;
+            color: #94a3b8;
+            margin-top: 4px;
         }
 
-        .login-btn {
-            background: linear-gradient(to right, var(--accent), var(--accent2));
-            color: var(--dark);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
+        .nav-links {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 70, 85, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            gap: 30px;
         }
 
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 70, 85, 0.5);
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            padding: 150px 0 80px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(255, 70, 85, 0.1) 0%, transparent 70%);
-            z-index: -1;
+            padding: 60px 0 40px;
+            background: radial-gradient(circle at 50% 0%, rgba(37, 117, 252, 0.1) 0%, transparent 60%);
         }
 
         .hero h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--accent), var(--accent2), var(--accent3));
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            color: #b0c4d4;
-            line-height: 1.8;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #cbd5e1;
         }
 
-        /* Tabs Navigation */
-        .tabs-container {
-            background: rgba(26, 35, 50, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 10px;
-            margin-bottom: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .tabs {
+        .platform-tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
         .tab-btn {
-            background: transparent;
-            color: var(--light);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-family: 'Orbitron', sans-serif;
+            padding: 12px 28px;
+            background: rgba(30, 41, 59, 0.8);
+            border: none;
+            border-radius: 50px;
+            color: #cbd5e1;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            flex: 1;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .tab-btn:hover {
-            background: rgba(255, 70, 85, 0.1);
-            border-color: var(--accent);
+            transition: all 0.3s;
+            font-size: 1rem;
         }
 
         .tab-btn.active {
-            background: linear-gradient(to right, var(--accent), var(--accent2));
-            color: var(--dark);
-            border-color: transparent;
-            box-shadow: 0 5px 15px rgba(255, 70, 85, 0.4);
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
         }
 
-        /* Items Grid */
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
+        .tab-btn:hover:not(.active) {
+            background: rgba(37, 117, 252, 0.2);
         }
 
-        .tab-content.active {
-            display: block;
+        /* Games Grid */
+        .games-container {
+            padding: 20px 0 60px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        .items-grid {
+        .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
         }
 
-        .item-card {
-            background: var(--card-bg);
-            border-radius: 15px;
+        .game-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(37, 117, 252, 0.3);
+        }
+
+        .game-img {
+            height: 160px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
             position: relative;
-            backdrop-filter: blur(10px);
         }
 
-        .item-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 35px rgba(255, 70, 85, 0.2);
-        }
-
-        .item-card::before {
-            content: '';
+        .game-type {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-        }
-
-        .item-img-container {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, rgba(255,70,85,0.1), rgba(0,255,157,0.1));
-        }
-
-        .item-img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-
-        .item-card:hover .item-img {
-            transform: scale(1.1);
-        }
-
-        .item-info {
-            padding: 25px;
-        }
-
-        .item-name {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--light);
-            font-weight: 700;
-        }
-
-        .item-type {
-            display: inline-block;
-            font-size: 0.9rem;
-            color: var(--accent2);
-            margin-bottom: 15px;
-            padding: 5px 15px;
-            background: rgba(0, 255, 157, 0.1);
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
             border-radius: 20px;
-            border: 1px solid rgba(0, 255, 157, 0.2);
+            font-size: 0.8rem;
             font-weight: 600;
-        }
-
-        .item-description {
-            color: #b0c4d4;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .send-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(to right, var(--accent), var(--accent2));
-            color: var(--dark);
-            border: none;
-            border-radius: 10px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
+        }
+
+        .pc-game {
+            background-color: var(--pc-color);
+        }
+
+        .mobile-game {
+            background-color: var(--mobile-color);
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .game-desc {
+            color: #94a3b8;
             font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
-        .send-btn:hover {
-            background: linear-gradient(to right, var(--accent2), var(--accent3));
-            letter-spacing: 2px;
-            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
+        .play-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
         }
 
-        /* Modal Styles */
-        .modal {
+        .play-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+
+        /* Play Animation Modal */
+        .play-modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 14, 23, 0.95);
-            z-index: 2000;
-            justify-content: center;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
             align-items: center;
-            backdrop-filter: blur(10px);
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
         }
 
         .modal-content {
-            background: var(--card-bg);
-            width: 90%;
-            max-width: 500px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border-radius: 20px;
             padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            position: relative;
-            animation: modalAppear 0.4s ease;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid rgba(37, 117, 252, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes modalAppear {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        .modal-header {
+            margin-bottom: 30px;
         }
 
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 1.8rem;
-            color: var(--light);
-            cursor: pointer;
-            transition: color 0.3s;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .close-modal:hover {
-            color: var(--accent);
-            background: rgba(255, 70, 85, 0.1);
-        }
-
-        .modal h3 {
+        .modal-header h3 {
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
-            margin-bottom: 1.5rem;
-            background: var(--gradient);
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-align: center;
         }
 
-        .input-group {
-            margin-bottom: 1.8rem;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--accent2);
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: white;
-            font-size: 1rem;
-            font-family: 'Exo 2', sans-serif;
-            transition: all 0.3s;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: rgba(255, 70, 85, 0.05);
-        }
-
-        .modal-send-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(to right, var(--accent), var(--accent2));
-            color: var(--dark);
-            border: none;
-            border-radius: 10px;
+        .game-loading {
             font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .timer-display {
             font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
             font-weight: 700;
-            cursor: pointer;
+            margin: 30px 0;
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(37, 117, 252, 0.5);
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 6px;
+            transition: width 1s linear;
+        }
+
+        .loading-animation {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 10px;
+            gap: 15px;
+            margin: 40px 0;
         }
 
-        .modal-send-btn:hover {
-            background: linear-gradient(to right, var(--accent2), var(--accent3));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.3);
-        }
-
-        /* Login Modal */
-        .login-modal .modal-content {
-            max-width: 500px;
-        }
-
-        .password-section {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .password-section h4 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--accent2);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .password-section h4 i {
-            font-size: 1.5rem;
-        }
-
-        /* Animation */
-        .loader {
-            display: none;
-            width: 60px;
-            height: 60px;
-            margin: 30px auto;
-            position: relative;
-        }
-
-        .loader-circle {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 5px solid transparent;
-            border-top-color: var(--accent);
+        .loading-dot {
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            background: var(--secondary-color);
+            animation: pulse 1.5s infinite ease-in-out;
         }
 
-        .loader-circle:nth-child(2) {
-            border-top-color: var(--accent2);
+        .loading-dot:nth-child(2) {
             animation-delay: 0.2s;
-            width: 80%;
-            height: 80%;
-            top: 10%;
-            left: 10%;
         }
 
-        .loader-circle:nth-child(3) {
-            border-top-color: var(--accent3);
+        .loading-dot:nth-child(3) {
             animation-delay: 0.4s;
-            width: 60%;
-            height: 60%;
-            top: 20%;
-            left: 20%;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 30px;
-            background: rgba(0, 255, 157, 0.05);
-            border-radius: 15px;
-            margin-top: 30px;
-            border: 1px solid rgba(0, 255, 157, 0.1);
-        }
-
-        .success-message i {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: var(--accent2);
-            animation: pulse 2s infinite;
+        .loading-dot:nth-child(4) {
+            animation-delay: 0.6s;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
         }
 
-        .success-message h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--accent2);
+        .cancel-btn {
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            font-size: 1rem;
         }
 
-        .success-message p {
-            color: #b0c4d4;
-            line-height: 1.6;
+        .cancel-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(to right, #e17055, #fdcb6e);
+            color: #0f172a;
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1001;
+            max-width: 400px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .notification-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .notification-header i {
+            font-size: 1.5rem;
+        }
+
+        .notification-header h4 {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         /* Footer */
         footer {
-            background: rgba(10, 14, 23, 0.9);
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 70, 85, 0.2);
-            margin-top: 4rem;
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.95);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            gap: 20px;
         }
 
         .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-
-        .footer-logo h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            background: var(--gradient);
+            font-size: 1.5rem;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
         .copyright {
-            color: #8a9bb2;
+            color: #94a3b8;
             font-size: 0.9rem;
-            max-width: 700px;
-            line-height: 1.8;
         }
 
-        /* Responsive */
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive Design */
         @media (max-width: 992px) {
-            .items-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 25px;
-            }
-            
-            .hero h2 {
-                font-size: 2.8rem;
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
-            .header-content {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .platform-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .footer-content {
                 flex-direction: column;
                 gap: 20px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
             }
             
             .hero {
-                padding: 180px 0 60px;
+                padding: 40px 0 20px;
             }
             
             .hero h2 {
-                font-size: 2.3rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-                padding: 0 20px;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab-btn {
-                padding: 12px 20px;
+                font-size: 1.8rem;
             }
             
             .modal-content {
-                padding: 30px 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .items-grid {
-                grid-template-columns: 1fr;
+                padding: 30px 20px;
             }
             
-            .hero h2 {
-                font-size: 2rem;
+            .timer-display {
+                font-size: 3rem;
             }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .logo h1 {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Free Fire Color Badges */
-        .rarity-common { color: #b0c4d4; }
-        .rarity-rare { color: #00a8ff; }
-        .rarity-epic { color: #9d4edd; }
-        .rarity-legendary { color: #ff9e00; }
-        .rarity-mythic { color: #ff4655; }
-        
-        .item-rarity {
-            display: inline-block;
-            font-size: 0.85rem;
-            margin-left: 10px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header Section -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-icon">F</div>
+                    <i class="fas fa-gamepad"></i>
                     <div>
-                        <h1>FLUXCHEATS</h1>
-                        <span>FREE FIRE ITEMS PORTAL</span>
+                        <h1>GameHub</h1>
+                        <div class="tagline">PC & Mobile Gaming Platform</div>
                     </div>
                 </div>
-                <button class="login-btn" id="openLoginModal">
-                    <i class="fas fa-plus"></i>
-                    Login
+                
+                <nav class="nav-links">
+                    <a href="#"><i class="fas fa-home"></i> Home</a>
+                    <a href="#"><i class="fas fa-desktop"></i> PC Games</a>
+                    <a href="#"><i class="fas fa-mobile-alt"></i> Mobile Games</a>
+                    <a href="#"><i class="fas fa-fire"></i> Trending</a>
+                    <a href="#"><i class="fas fa-user"></i> Account</a>
+                </nav>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
@@ -731,565 +533,288 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>UNLOCK ALL FREE FIRE ITEMS</h2>
-            <p>Access the complete collection of Free Fire emotes, evolution guns, and exclusive bundles. Select any item and send it directly to your Free Fire account with just a few clicks.</p>
+            <h2>Play the Best PC & Mobile Games</h2>
+            <p>Explore our collection of 50+ high-quality games. Click on any game to start playing instantly.</p>
             
-            <div class="tabs-container">
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="emotes">Emotes</button>
-                    <button class="tab-btn" data-tab="evo-guns">Evo Guns</button>
-                    <button class="tab-btn" data-tab="bundles">Rare Bundles</button>
-                </div>
+            <div class="platform-tabs">
+                <button class="tab-btn active" data-filter="all">All Games</button>
+                <button class="tab-btn" data-filter="pc">PC Games</button>
+                <button class="tab-btn" data-filter="mobile">Mobile Games</button>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Emotes Tab -->
-        <div id="emotes" class="tab-content active">
-            <h2 class="section-title">FREE FIRE EMOTES</h2>
-            <div class="items-grid" id="emotes-grid">
-                <!-- Emotes will be populated by JavaScript -->
+    <!-- Games Grid -->
+    <section class="games-container">
+        <div class="container">
+            <div class="games-grid" id="gamesGrid">
+                <!-- Games will be dynamically added here -->
             </div>
         </div>
+    </section>
 
-        <!-- Evo Guns Tab -->
-        <div id="evo-guns" class="tab-content">
-            <h2 class="section-title">EVOLUTION GUNS</h2>
-            <div class="items-grid" id="evo-guns-grid">
-                <!-- Evo Guns will be populated by JavaScript -->
+    <!-- Play Animation Modal -->
+    <div class="play-modal" id="playModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalGameTitle">Loading Game</h3>
+                <div class="game-loading">Preparing your gaming experience...</div>
             </div>
+            
+            <div class="loading-animation">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+            
+            <div class="timer-display" id="timerDisplay">01:00</div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <p>Please wait while we connect you to the game server...</p>
+            
+            <button class="cancel-btn" id="cancelBtn">Cancel Loading</button>
         </div>
+    </div>
 
-        <!-- Bundles Tab -->
-        <div id="bundles" class="tab-content">
-            <h2 class="section-title">RARE BUNDLES</h2>
-            <div class="items-grid" id="bundles-grid">
-                <!-- Bundles will be populated by JavaScript -->
-            </div>
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-header">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h4>Server Busy</h4>
         </div>
-    </main>
+        <p>Our servers are currently at full capacity. Please try again after some time.</p>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon" style="width: 40px; height: 40px; font-size: 1.4rem;">F</div>
-                    <h3>FLUXCHEATS</h3>
+                <div class="footer-logo">GameHub</div>
+                <div class="copyright">© 2023 GameHub. All rights reserved. All game images and titles are property of their respective owners.</div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
-                <p class="copyright">© 2023 FluxCheats. This website is a fan-made portal for Free Fire enthusiasts. All game content, images and trademarks are property of Garena Free Fire. This site is not affiliated with Garena or Free Fire.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Send Item Modal -->
-    <div class="modal" id="sendModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeSendModal">&times;</span>
-            <h3>SEND ITEM</h3>
-            <div class="input-group">
-                <label for="itemName">Selected Item</label>
-                <input type="text" id="itemName" readonly>
-            </div>
-            <div class="input-group">
-                <label for="uid">Enter Your 10-Digit Free Fire UID</label>
-                <input type="text" id="uid" placeholder="e.g., 1234567890" maxlength="10">
-            </div>
-            <button class="modal-send-btn" id="modalSendBtn">
-                <i class="fas fa-paper-plane"></i>
-                SEND TO ACCOUNT
-            </button>
-            
-            <div class="loader" id="sendLoader">
-                <div class="loader-circle"></div>
-                <div class="loader-circle"></div>
-                <div class="loader-circle"></div>
-            </div>
-            
-            <div class="success-message" id="successMessage">
-                <i class="fas fa-check-circle"></i>
-                <h3>ITEM SUCCESSFULLY GIFTED!</h3>
-                <p>Your item has been queued for delivery. Please check your registered email after 24 hours to claim your item.</p>
-                <p>Delivery confirmation will be sent to your email address.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Login Modal -->
-    <div class="modal login-modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeLoginModal">&times;</span>
-            <h3>FLUXCHEATS LOGIN</h3>
-            <p style="text-align: center; margin-bottom: 30px; color: #b0c4d4;">Enter the required passwords to access premium features</p>
-            
-            <div class="password-section">
-                <h4><i class="fab fa-youtube"></i> YouTube Password</h4>
-                <input type="password" id="youtubePassword" placeholder="Enter YouTube password (2025)">
-            </div>
-            
-            <div class="password-section">
-                <h4><i class="fab fa-telegram"></i> Telegram Password</h4>
-                <input type="password" id="telegramPassword" placeholder="Enter Telegram password (2026)">
-            </div>
-            
-            <button class="modal-send-btn" id="loginBtn">
-                <i class="fas fa-sign-in-alt"></i>
-                LOGIN TO PORTAL
-            </button>
-            
-            <div class="success-message" id="loginSuccessMessage" style="display: none;">
-                <i class="fas fa-check-circle"></i>
-                <h3>LOGIN SUCCESSFUL!</h3>
-                <p>Welcome to FluxCheats premium access portal.</p>
-                <p>You now have full access to all items and features.</p>
-            </div>
-            
-            <p style="text-align: center; margin-top: 25px; font-size: 0.9rem; color: #8a9bb2;">
-                Note: Contact admin for password updates or assistance
-            </p>
-        </div>
-    </div>
-
     <script>
-        // Realistic Free Fire Items Data with actual Free Fire images
-        const itemsData = {
-            emotes: [
-                { 
-                    id: 1, 
-                    name: "LOL Emote", 
-                    type: "Legendary Emote", 
-                    img: "https://i.ibb.co/1RQV4hH/emote1.png",
-                    rarity: "legendary",
-                    description: "Popular laughing emote with animated LOL text and character laughing animation"
-                },
-                { 
-                    id: 2, 
-                    name: "Take The L", 
-                    type: "Epic Emote", 
-                    img: "https://i.ibb.co/KW8tzWV/emote2.png", 
-                    rarity: "epic",
-                    description: "Iconic L-shaped victory dance emote with particle effects"
-                },
-                { 
-                    id: 3, 
-                    name: "Floss Dance", 
-                    type: "Rare Emote", 
-                    img: "https://i.ibb.co/4f6V3hC/emote3.png",
-                    rarity: "rare",
-                    description: "Trendy dance move with smooth swinging arm animations"
-                },
-                { 
-                    id: 4, 
-                    name: "Orange Justice", 
-                    type: "Legendary Emote", 
-                    img: "https://i.ibb.co/J7VwVfc/emote4.png",
-                    rarity: "legendary",
-                    description: "Energetic dance with orange glow effects and music"
-                },
-                { 
-                    id: 5, 
-                    name: "Electro Shuffle", 
-                    type: "Mythic Emote", 
-                    img: "https://i.ibb.co/4Pscx3D/emote5.png",
-                    rarity: "mythic",
-                    description: "Electric dance with lightning effects and glowing trails"
-                },
-                { 
-                    id: 6, 
-                    name: "Living Large", 
-                    type: "Epic Emote", 
-                    img: "https://i.ibb.co/0ZpQd0b/emote6.png",
-                    rarity: "epic",
-                    description: "Show off your victory with money shower and luxury animations"
-                },
-                { 
-                    id: 7, 
-                    name: "Dab", 
-                    type: "Rare Emote", 
-                    img: "https://i.ibb.co/Gtd3hHf/emote7.png",
-                    rarity: "rare",
-                    description: "Classic dab emote for celebrations with smooth transitions"
-                },
-                { 
-                    id: 8, 
-                    name: "Gangnam Style", 
-                    type: "Legendary Emote", 
-                    img: "https://i.ibb.co/8b8yL4c/emote8.png",
-                    rarity: "legendary",
-                    description: "Iconic horse dance move from worldwide hit with music"
-                }
-            ],
-            evoGuns: [
-                { 
-                    id: 9, 
-                    name: "AK47 - Dragon Spirit Max", 
-                    type: "Max Evolution", 
-                    img: "https://i.ibb.co/9gNs6Z9/ak47-max.png",
-                    rarity: "mythic",
-                    description: "Fully evolved AK47 with dragon spirit effects, glowing eyes and fire trails"
-                },
-                { 
-                    id: 10, 
-                    name: "M4A1 - Cyber Revolution Max", 
-                    type: "Max Evolution", 
-                    img: "https://i.ibb.co/JQdXYTs/m4a1-max.png",
-                    rarity: "mythic",
-                    description: "Cyber-themed M4A1 with neon effects, holographic sights and digital camo"
-                },
-                { 
-                    id: 11, 
-                    name: "AWM - Neon Pulse Max", 
-                    type: "Max Evolution", 
-                    img: "https://i.ibb.co/5GXvj3n/awm-max.png",
-                    rarity: "legendary",
-                    description: "Sniper rifle with pulsating neon effects, scope glows and energy bullets"
-                },
-                { 
-                    id: 12, 
-                    name: "Cobra MP40 - Gold King Max", 
-                    type: "Max Evolution", 
-                    img: "https://i.ibb.co/qgRm8hK/mp40-max.png",
-                    rarity: "mythic",
-                    description: "Golden MP40 with royal cobra design, snake animations and jewel encrusted"
-                },
-                { 
-                    id: 13, 
-                    name: "SCAR - Fire Spirit Max", 
-                    type: "Max Evolution", 
-                    img: "https://i.ibb.co/tK86SJc/scar-max.png",
-                    rarity: "legendary",
-                    description: "Flaming SCAR with spirit animations, fire effects and smoke trails"
-                },
-                { 
-                    id: 14, 
-                    name: "UMP - Cybernetic Max", 
-                    type: "Max Evolution", 
-                    img: "https://i.ibb.co/JqSbmV4/ump-max.png",
-                    rarity: "epic",
-                    description: "Cybernetic UMP with advanced tech design, laser sights and digital display"
-                },
-                { 
-                    id: 15, 
-                    name: "M1887 - Dragon Breath Max", 
-                    type: "Max Evolution", 
-                    img: "https://i.ibb.co/7CHFqLk/m1887-max.png",
-                    rarity: "legendary",
-                    description: "Shotgun with dragon breath fire effects, scale texture and smoke particles"
-                },
-                { 
-                    id: 16, 
-                    name: "P90 - Neon Rider Max", 
-                    type: "Max Evolution", 
-                    img: "https://i.ibb.co/D9GFpYk/p90-max.png",
-                    rarity: "epic",
-                    description: "Neon-themed P90 with rider aesthetics, glowing tracks and speed lines"
-                }
-            ],
-            bundles: [
-                { 
-                    id: 17, 
-                    name: "Hip Hop Bundle", 
-                    type: "Rare Bundle", 
-                    img: "https://i.ibb.co/wLzkd1T/hiphop-bundle.png",
-                    rarity: "rare",
-                    description: "Street style outfit with gold chains, snapback cap, baggy jeans and sneakers"
-                },
-                { 
-                    id: 18, 
-                    name: "Sakura Bundle", 
-                    type: "Exclusive Bundle", 
-                    img: "https://i.ibb.co/2dW1s0t/sakura-bundle.png",
-                    rarity: "legendary",
-                    description: "Japanese cherry blossom themed kimono, floral patterns and seasonal effects"
-                },
-                { 
-                    id: 19, 
-                    name: "Dragon Warrior Bundle", 
-                    type: "Legendary Bundle", 
-                    img: "https://i.ibb.co/vsxdyhP/dragon-bundle.png",
-                    rarity: "legendary",
-                    description: "Ancient dragon warrior armor set with scale mail, helmet and dragon crest"
-                },
-                { 
-                    id: 20, 
-                    name: "Cyberpunk Bundle", 
-                    type: "Mythic Bundle", 
-                    img: "https://i.ibb.co/4W9cZPM/cyberpunk-bundle.png",
-                    rarity: "mythic",
-                    description: "Futuristic cyberpunk outfit with neon lights, holographic elements and tech gear"
-                },
-                { 
-                    id: 21, 
-                    name: "Galactic Commander Bundle", 
-                    type: "Legendary Bundle", 
-                    img: "https://i.ibb.co/zS55vNY/galactic-bundle.png",
-                    rarity: "legendary",
-                    description: "Space commander outfit with galaxy patterns, star effects and cosmic aura"
-                },
-                { 
-                    id: 22, 
-                    name: "Phantom Bundle", 
-                    type: "Epic Bundle", 
-                    img: "https://i.ibb.co/DgQRv9T/phantom-bundle.png",
-                    rarity: "epic",
-                    description: "Ghostly phantom outfit with transparent effects, mist aura and ethereal glow"
-                },
-                { 
-                    id: 23, 
-                    name: "Golden Pharaoh Bundle", 
-                    type: "Mythic Bundle", 
-                    img: "https://i.ibb.co/mbMsJT1/pharaoh-bundle.png",
-                    rarity: "mythic",
-                    description: "Ancient Egyptian pharaoh golden outfit with hieroglyphics and ankh symbols"
-                },
-                { 
-                    id: 24, 
-                    name: "Ice Queen Bundle", 
-                    type: "Legendary Bundle", 
-                    img: "https://i.ibb.co/f1MWj76/ice-bundle.png",
-                    rarity: "legendary",
-                    description: "Frozen ice queen outfit with frost effects, snow particles and crystal crown"
-                }
-            ]
-        };
-
-        // Fallback images in case the primary images don't load
-        const fallbackImages = {
-            emotes: [
-                "🎮", "😂", "💃", "🕺", "⚡", "💰", "👋", "🐎"
-            ],
-            evoGuns: [
-                "🔫🐲", "🔫💻", "🔫🎯", "🔫🐍", "🔫🔥", "🔫⚙️", "🔫💨", "🔫🚀"
-            ],
-            bundles: [
-                "👕🎤", "👘🌸", "🛡️🐉", "👓💾", "👨‍🚀🌌", "👻💨", "👑🐪", "👸❄️"
-            ]
-        };
+        // Sample game data (50 games: 25 PC, 25 Mobile)
+        const games = [
+            // PC Games
+            { id: 1, title: "Grand Theft Auto V", type: "pc", desc: "Open-world action-adventure game set in Los Santos.", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 2, title: "Cyberpunk 2077", type: "pc", desc: "Open-world RPG set in Night City, a megalopolis obsessed with power.", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 3, title: "The Witcher 3", type: "pc", desc: "Action RPG set in a fantasy world with monster hunting and rich storytelling.", img: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 4, title: "Elden Ring", type: "pc", desc: "Action RPG with an open world and challenging combat.", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 5, title: "Red Dead Redemption 2", type: "pc", desc: "Western-themed action-adventure game set in America's heartland.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 6, title: "Fortnite", type: "pc", desc: "Battle royale game with building mechanics and colorful graphics.", img: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 7, title: "Call of Duty: Warzone", type: "pc", desc: "Free-to-play battle royale game in the Call of Duty universe.", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 8, title: "Minecraft", type: "pc", desc: "Sandbox game with block-building and exploration in procedurally generated worlds.", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 9, title: "Valorant", type: "pc", desc: "Tactical first-person shooter with character-based abilities.", img: "https://images.unsplash.com/photo-1618331833071-1c0c6ee3d19e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 10, title: "Apex Legends", type: "pc", desc: "Hero-based battle royale game set in the Titanfall universe.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 11, title: "Counter-Strike 2", type: "pc", desc: "Tactical first-person shooter with terrorists vs counter-terrorists gameplay.", img: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 12, title: "FIFA 23", type: "pc", desc: "Football simulation game with realistic gameplay and major leagues.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 13, title: "Destiny 2", type: "pc", desc: "Online-only multiplayer first-person shooter with MMO elements.", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 14, title: "Rocket League", type: "pc", desc: "Vehicular soccer video game with rocket-powered cars.", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 15, title: "Rainbow Six Siege", type: "pc", desc: "Tactical shooter with destructible environments and operator-based gameplay.", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 16, title: "Overwatch 2", type: "pc", desc: "Team-based first-person shooter with hero-based gameplay.", img: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 17, title: "League of Legends", type: "pc", desc: "Multiplayer online battle arena game with team-based strategy.", img: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 18, title: "Dota 2", type: "pc", desc: "Multiplayer online battle arena game and sequel to Defense of the Ancients.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 19, title: "PUBG: Battlegrounds", type: "pc", desc: "Battle royale game where players fight to be the last one standing.", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 20, title: "Hogwarts Legacy", type: "pc", desc: "Action RPG set in the Harry Potter universe in the late 1800s.", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 21, title: "God of War Ragnarök", type: "pc", desc: "Action-adventure game based on Norse mythology.", img: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 22, title: "Far Cry 6", type: "pc", desc: "First-person shooter set on a fictional Caribbean island.", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 23, title: "Assassin's Creed Valhalla", type: "pc", desc: "Action RPG set in the Viking Age with exploration and combat.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 24, title: "Resident Evil 4 Remake", type: "pc", desc: "Survival horror game with action elements and atmospheric gameplay.", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 25, title: "Starfield", type: "pc", desc: "Action RPG set in space with exploration and role-playing elements.", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            
+            // Mobile Games
+            { id: 26, title: "Subway Surfers", type: "mobile", desc: "Endless runner game where you surf on subway trains.", img: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 27, title: "PUBG Mobile", type: "mobile", desc: "Battle royale game optimized for mobile devices.", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 28, title: "Call of Duty: Mobile", type: "mobile", desc: "First-person shooter with multiplayer and battle royale modes.", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 29, title: "Genshin Impact", type: "mobile", desc: "Action RPG with open-world exploration and gacha mechanics.", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 30, title: "Clash of Clans", type: "mobile", desc: "Strategy game where you build villages and battle other players.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 31, title: "Clash Royale", type: "mobile", desc: "Real-time strategy game with card collecting and tower defense elements.", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 32, title: "Among Us", type: "mobile", desc: "Multiplayer social deduction game with crewmates and impostors.", img: "https://images.unsplash.com/photo-1618331833071-1c0c6ee3d19e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 33, title: "Candy Crush Saga", type: "mobile", desc: "Match-three puzzle game with hundreds of levels.", img: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 34, title: "Pokémon GO", type: "mobile", desc: "Augmented reality game where you catch Pokémon in real-world locations.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 35, title: "Roblox", type: "mobile", desc: "Platform where users can create and play games made by other users.", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 36, title: "Free Fire", type: "mobile", desc: "Battle royale game with fast-paced matches on a remote island.", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 37, title: "Minecraft Mobile", type: "mobile", desc: "Pocket edition of the popular sandbox building game.", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 38, title: "Asphalt 9: Legends", type: "mobile", desc: "Racing game with high-end supercars and arcade-style gameplay.", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 39, title: "Brawl Stars", type: "mobile", desc: "Fast-paced multiplayer battle game with various game modes.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 40, title: "8 Ball Pool", type: "mobile", desc: "Multiplayer pool game with realistic physics and tournaments.", img: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 41, title: "Hill Climb Racing", type: "mobile", desc: "Physics-based driving game with unique vehicles and terrain.", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 42, title: "Temple Run 2", type: "mobile", desc: "Endless runner game where you escape from demonic monkeys.", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 43, title: "Fruit Ninja", type: "mobile", desc: "Arcade game where you slice fruit with a touch-controlled blade.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 44, title: "Angry Birds 2", type: "mobile", desc: "Puzzle game where you use slingshot to launch birds at pig structures.", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 45, title: "Plants vs. Zombies 2", type: "mobile", desc: "Tower defense game where you use plants to defend against zombies.", img: "https://images.unsplash.com/photo-1618331833071-1c0c6ee3d19e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 46, title: "Monument Valley", type: "mobile", desc: "Puzzle game with impossible geometry and optical illusions.", img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 47, title: "Hay Day", type: "mobile", desc: "Farming simulation game where you grow crops and raise animals.", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 48, title: "Ludo King", type: "mobile", desc: "Digital version of the classic board game Ludo.", img: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 49, title: "Coin Master", type: "mobile", desc: "Slot machine game with village building and social features.", img: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 50, title: "Homescapes", type: "mobile", desc: "Match-3 puzzle game with home renovation storyline.", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
+        ];
 
         // DOM Elements
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const sendModal = document.getElementById('sendModal');
-        const closeSendModal = document.getElementById('closeSendModal');
-        const loginModal = document.getElementById('loginModal');
-        const closeLoginModal = document.getElementById('closeLoginModal');
-        const openLoginModalBtn = document.getElementById('openLoginModal');
-        const modalSendBtn = document.getElementById('modalSendBtn');
-        const sendLoader = document.getElementById('sendLoader');
-        const successMessage = document.getElementById('successMessage');
-        const itemNameInput = document.getElementById('itemName');
-        const uidInput = document.getElementById('uid');
-        const loginBtn = document.getElementById('loginBtn');
-        const loginSuccessMessage = document.getElementById('loginSuccessMessage');
-        let isLoggedIn = false;
+        const gamesGrid = document.getElementById('gamesGrid');
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const playModal = document.getElementById('playModal');
+        const modalGameTitle = document.getElementById('modalGameTitle');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const progressBar = document.getElementById('progressBar');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const notification = document.getElementById('notification');
 
-        // Initialize the page with items
-        document.addEventListener('DOMContentLoaded', () => {
-            populateItems('emotes', 'emotes-grid', 0);
-            populateItems('evoGuns', 'evo-guns-grid', 1);
-            populateItems('bundles', 'bundles-grid', 2);
-            
-            // Set active tab
-            tabBtns[0].classList.add('active');
-            tabContents[0].classList.add('active');
-        });
+        // Variables for timer
+        let timerInterval;
+        let timeLeft = 60; // 1 minute in seconds
 
-        // Function to populate items in grid
-        function populateItems(category, gridId, fallbackIndex) {
-            const grid = document.getElementById(gridId);
-            grid.innerHTML = '';
+        // Initialize the games grid
+        function renderGames(filter = 'all') {
+            gamesGrid.innerHTML = '';
             
-            itemsData[category].forEach((item, index) => {
-                const itemCard = document.createElement('div');
-                itemCard.className = 'item-card';
+            const filteredGames = filter === 'all' 
+                ? games 
+                : games.filter(game => game.type === filter);
+            
+            filteredGames.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
+                gameCard.dataset.type = game.type;
                 
-                const rarityClass = `rarity-${item.rarity}`;
-                const rarityText = item.rarity.charAt(0).toUpperCase() + item.rarity.slice(1);
-                
-                itemCard.innerHTML = `
-                    <div class="item-img-container">
-                        <img src="${item.img}" alt="${item.name}" class="item-img" 
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\"font-size: 4rem;\">${fallbackImages[category][index]}</div>';">
+                gameCard.innerHTML = `
+                    <div class="game-img" style="background-image: url('${game.img}')">
+                        <span class="game-type ${game.type}-game">${game.type.toUpperCase()}</span>
                     </div>
-                    <div class="item-info">
-                        <h3 class="item-name">${item.name}
-                            <span class="item-rarity ${rarityClass}">${rarityText}</span>
-                        </h3>
-                        <span class="item-type">${item.type}</span>
-                        <p class="item-description">${item.description}</p>
-                        <button class="send-btn" data-id="${item.id}" data-name="${item.name}">
-                            <i class="fas fa-gift"></i>
-                            Send to Account
+                    <div class="game-info">
+                        <h3 class="game-title">${game.title}</h3>
+                        <p class="game-desc">${game.desc}</p>
+                        <button class="play-btn" data-id="${game.id}">
+                            <i class="fas fa-play-circle"></i> Play Now
                         </button>
                     </div>
                 `;
-                grid.appendChild(itemCard);
+                
+                gamesGrid.appendChild(gameCard);
             });
             
-            // Add event listeners to send buttons
-            const sendButtons = grid.querySelectorAll('.send-btn');
-            sendButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (!isLoggedIn) {
-                        alert('Please login first to send items!');
-                        loginModal.style.display = 'flex';
-                        return;
-                    }
-                    const itemId = btn.getAttribute('data-id');
-                    const itemName = btn.getAttribute('data-name');
-                    openSendModal(itemName);
+            // Add event listeners to play buttons
+            document.querySelectorAll('.play-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const gameId = parseInt(this.dataset.id);
+                    const game = games.find(g => g.id === gameId);
+                    openPlayModal(game);
                 });
             });
         }
 
-        // Tab switching functionality
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-                
-                // Update active tab button
-                tabBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                // Show active tab content
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                    if (content.id === tabId) {
-                        content.classList.add('active');
-                    }
-                });
-            });
-        });
-
-        // Open send modal
-        function openSendModal(itemName) {
-            itemNameInput.value = itemName;
-            sendModal.style.display = 'flex';
-            successMessage.style.display = 'none';
-            sendLoader.style.display = 'none';
-            modalSendBtn.style.display = 'flex';
-            uidInput.value = '';
-            uidInput.focus();
+        // Open the play modal with game info
+        function openPlayModal(game) {
+            modalGameTitle.textContent = game.title;
+            playModal.style.display = 'flex';
+            
+            // Reset timer and progress
+            timeLeft = 60;
+            timerDisplay.textContent = '01:00';
+            progressBar.style.width = '0%';
+            
+            // Start the timer
+            startTimer();
         }
 
-        // Close send modal
-        closeSendModal.addEventListener('click', () => {
-            sendModal.style.display = 'none';
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === sendModal) {
-                sendModal.style.display = 'none';
-            }
-            if (e.target === loginModal) {
-                loginModal.style.display = 'none';
-            }
-        });
-
-        // Send item functionality
-        modalSendBtn.addEventListener('click', () => {
-            const uid = uidInput.value.trim();
+        // Start the countdown timer
+        function startTimer() {
+            clearInterval(timerInterval);
             
-            // Validate UID
-            if (!uid || uid.length !== 10 || isNaN(uid)) {
-                alert('Please enter a valid 10-digit Free Fire UID');
-                uidInput.focus();
-                return;
-            }
-            
-            // Show loader
-            sendLoader.style.display = 'block';
-            modalSendBtn.style.display = 'none';
-            
-            // Simulate sending process
-            setTimeout(() => {
-                sendLoader.style.display = 'none';
-                successMessage.style.display = 'block';
+            timerInterval = setInterval(() => {
+                timeLeft--;
                 
-                // Reset after 5 seconds and close modal
-                setTimeout(() => {
-                    sendModal.style.display = 'none';
-                    modalSendBtn.style.display = 'flex';
-                }, 5000);
-            }, 3000);
-        });
-
-        // Open login modal
-        openLoginModalBtn.addEventListener('click', () => {
-            if (isLoggedIn) {
-                // Logout functionality
-                isLoggedIn = false;
-                openLoginModalBtn.innerHTML = '<i class="fas fa-plus"></i> Login';
-                alert('You have been logged out successfully.');
-                return;
-            }
-            loginModal.style.display = 'flex';
-            document.getElementById('youtubePassword').value = '';
-            document.getElementById('telegramPassword').value = '';
-            loginSuccessMessage.style.display = 'none';
-            loginBtn.style.display = 'flex';
-            document.getElementById('youtubePassword').focus();
-        });
-
-        // Close login modal
-        closeLoginModal.addEventListener('click', () => {
-            loginModal.style.display = 'none';
-        });
-
-        // Login functionality
-        loginBtn.addEventListener('click', () => {
-            const youtubePass = document.getElementById('youtubePassword').value;
-            const telegramPass = document.getElementById('telegramPassword').value;
-            
-            // Check passwords
-            if (youtubePass === '2025' && telegramPass === '2026') {
-                loginSuccessMessage.style.display = 'block';
-                loginBtn.style.display = 'none';
-                isLoggedIn = true;
+                // Update timer display
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
                 
-                // Change login button to logout after successful login
-                setTimeout(() => {
-                    loginModal.style.display = 'none';
-                    openLoginModalBtn.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
-                    alert('Welcome to FluxCheats Premium! You now have access to all items.');
-                }, 2000);
-            } else {
-                alert('Incorrect passwords. Please try again.\n\nYouTube Password: 2025\nTelegram Password: 2026');
-                document.getElementById('youtubePassword').value = '';
-                document.getElementById('telegramPassword').value = '';
-                document.getElementById('youtubePassword').focus();
-            }
-        });
-
-        // Add keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            // Escape key closes modals
-            if (e.key === 'Escape') {
-                sendModal.style.display = 'none';
-                loginModal.style.display = 'none';
-            }
-            
-            // Ctrl+L opens login modal
-            if (e.ctrlKey && e.key === 'l') {
-                e.preventDefault();
-                if (!isLoggedIn) {
-                    loginModal.style.display = 'flex';
+                // Update progress bar
+                const progress = ((60 - timeLeft) / 60) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // When timer reaches 0
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    
+                    // Close modal after a brief delay
+                    setTimeout(() => {
+                        playModal.style.display = 'none';
+                        
+                        // Show notification
+                        notification.style.display = 'block';
+                        
+                        // Hide notification after 5 seconds
+                        setTimeout(() => {
+                            notification.style.display = 'none';
+                        }, 5000);
+                    }, 500);
                 }
-            }
-            
-            // Enter key in login modal triggers login
-            if (e.key === 'Enter' && loginModal.style.display === 'flex') {
-                loginBtn.click();
-            }
-        });
+            }, 1000);
+        }
 
-        // Form validation for UID
-        uidInput.addEventListener('input', function() {
-            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render all games initially
+            renderGames();
+            
+            // Tab filtering functionality
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active tab
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter games
+                    const filter = this.dataset.filter;
+                    renderGames(filter);
+                });
+            });
+            
+            // Cancel button functionality
+            cancelBtn.addEventListener('click', () => {
+                clearInterval(timerInterval);
+                playModal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside
+            playModal.addEventListener('click', (e) => {
+                if (e.target === playModal) {
+                    clearInterval(timerInterval);
+                    playModal.style.display = 'none';
+                }
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            mobileMenuBtn.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+            
+            // Adjust mobile menu on window resize
+            window.addEventListener('resize', () => {
+                const navLinks = document.querySelector('.nav-links');
+                if (window.innerWidth > 768) {
+                    navLinks.style.display = 'flex';
+                } else {
+                    navLinks.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
-</html
+</html>
